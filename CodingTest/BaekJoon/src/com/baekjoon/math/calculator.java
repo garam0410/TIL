@@ -1,6 +1,8 @@
+package com.baekjoon.math;
+
 import java.util.*;
 
-class Main {
+public class calculator {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String[] num = sc.nextLine().split(" ");
