@@ -9,7 +9,7 @@ public class AddTwoNumbers {
         l1.next = new ListNode(4);
         l1.next.next = new ListNode(3);
 
-        new Solution().addTwoNumbers();
+        //new Solution().addTwoNumbers();
     }
 
     public static class ListNode {
