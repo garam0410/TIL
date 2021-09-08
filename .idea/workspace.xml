@@ -30,14 +30,14 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab_Social_Vehicle_Network_Service/Server/Lab_Social_Vehicle_Report_Management" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.DFS_BFS_1">
+  <component name="RunManager" selected="Application.KAKAOBLINDRECRUITMENT2021_6">
     <configuration name="BFS_ex1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ex.BFS_ex1" />
       <module name="TIL" />
@@ -77,12 +77,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DFS_ex1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ex.DFS_ex1" />
+    <configuration name="DFS_BFS_4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.programmers.DFS_BFS_4" />
       <module name="TIL" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ex.*" />
+          <option name="PATTERN" value="com.programmers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -90,12 +90,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GCD" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.ex.GCD" />
+    <configuration name="KAKAOBLINDRECRUITMENT2021_6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.programmers.KAKAOBLINDRECRUITMENT2021_6" />
       <module name="TIL" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.ex.*" />
+          <option name="PATTERN" value="com.programmers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -103,24 +103,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.KAKAOBLINDRECRUITMENT2021_6" />
+        <item itemvalue="Application.DFS_BFS_4" />
         <item itemvalue="Application.DFS_BFS_1" />
         <item itemvalue="Application.DFS_BFS_2" />
         <item itemvalue="Application.BFS_ex1" />
-        <item itemvalue="Application.DFS_ex1" />
-        <item itemvalue="Application.GCD" />
       </list>
     </recent_temporary>
   </component>
@@ -134,7 +136,8 @@
       <updated>1630551626947</updated>
       <workItem from="1630551629972" duration="12068000" />
       <workItem from="1630633248969" duration="5310000" />
-      <workItem from="1630978960061" duration="16640000" />
+      <workItem from="1630978960061" duration="16733000" />
+      <workItem from="1631063701790" duration="17629000" />
     </task>
     <servers />
   </component>
