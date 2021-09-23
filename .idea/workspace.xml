@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9a213735-8801-456c-9639-b03376fd29ba" name="Default Changelist" comment="" />
+    <list default="true" id="9a213735-8801-456c-9639-b03376fd29ba" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,16 +30,16 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/CodingTest" />
+    <property name="last_opened_file_path" value="$USER_HOME$/OneDrive/개인파일/autofunctionactivate" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.Q9663">
-    <configuration name="Q14888" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q14888" />
+  <component name="RunManager" selected="Application.Q19949">
+    <configuration name="Q14562" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q14562" />
       <module name="TIL" />
       <extension name="coverage">
         <pattern>
@@ -49,8 +51,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Q15649" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q15649" />
+    <configuration name="Q14889" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q14889" />
       <module name="TIL" />
       <extension name="coverage">
         <pattern>
@@ -62,8 +64,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Q15650" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q15650" />
+    <configuration name="Q16922" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q16922" />
       <module name="TIL" />
       <extension name="coverage">
         <pattern>
@@ -75,8 +77,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Q15651" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q15651" />
+    <configuration name="Q18429" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q18429" />
       <module name="TIL" />
       <extension name="coverage">
         <pattern>
@@ -88,8 +90,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Q9663" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q9663" />
+    <configuration name="Q19949" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q19949" />
       <module name="TIL" />
       <extension name="coverage">
         <pattern>
@@ -97,17 +99,28 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Q9663" />
-        <item itemvalue="Application.Q14888" />
-        <item itemvalue="Application.Q15650" />
-        <item itemvalue="Application.Q15649" />
-        <item itemvalue="Application.Q15651" />
+        <item itemvalue="Application.Q19949" />
+        <item itemvalue="Application.Q18429" />
+        <item itemvalue="Application.Q16922" />
+        <item itemvalue="Application.Q14889" />
+        <item itemvalue="Application.Q14562" />
       </list>
     </recent_temporary>
   </component>
@@ -129,7 +142,6 @@
       <workItem from="1631499393412" duration="135000" />
       <workItem from="1631515844198" duration="1959000" />
       <workItem from="1631584708248" duration="16771000" />
-      <workItem from="1631621921461" duration="54000" />
     </task>
     <servers />
   </component>
@@ -147,7 +159,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -262,6 +274,61 @@
           <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/example/완전탐색/Q14888.java</url>
           <line>27</line>
           <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/example/완전탐색/Q14562.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/example/완전탐색/Q14562.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/example/완전탐색/Q14889.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/example/완전탐색/Q14889.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/example/완전탐색/Q14889.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/example/완전탐색/Q16922.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/example/완전탐색/Q16922.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/example/완전탐색/Q18429.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/example/완전탐색/Q18429.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/example/완전탐색/Q19949.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/example/완전탐색/Q19949.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/programmers/DFS_BFS_1.java</url>
