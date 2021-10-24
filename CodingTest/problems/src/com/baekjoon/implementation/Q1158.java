@@ -5,14 +5,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Q1158 {
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
-        ArrayList<Integer> arr = new ArrayList<>();
-
-        ArrayList<Integer> answer = new ArrayList<>();
+        Queue<Integer> queue = new LinkedList<>();
 
         String[] vals = bf.readLine().split(" ");
 
@@ -20,17 +20,22 @@ public class Q1158 {
         int K = Integer.parseInt(vals[1]);
 
         for(int i = 1; i<N+1; i++)
-            arr.add(i);
+            queue.add(i);
 
-        int idx = K-1;
+        StringBuilder sb = new StringBuilder();
 
-        while(!arr.isEmpty()){
-            answer.add(arr.get(idx));
-            System.out.println(arr.get(idx));
-            arr.remove(idx);
-            
+        sb.append("<");
+
+        while(!queue.isEmpty()){
+            for(int i = 0; i<K-1; i++){
+                queue.add(queue.poll());
+            }
+            sb.append(queue.poll() + ", ");
         }
 
-        System.out.println(Arrays.toString(answer.toArray()));
+        sb.delete(sb.length()-2, sb.length());
+        sb.append(">");
+
+        System.out.println(sb.toString());
     }
 }
