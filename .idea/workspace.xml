@@ -46,22 +46,9 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.Weekly_12">
+  <component name="RunManager" selected="Application.Q2164">
     <configuration name="Q1158" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.baekjoon.implementation.Q1158" />
-      <module name="TIL" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.baekjoon.implementation.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Q14719" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.baekjoon.implementation.Q14719" />
       <module name="TIL" />
       <extension name="coverage">
         <pattern>
@@ -79,6 +66,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.baekjoon.BFS.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Q2164" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.baekjoon.implementation.Q2164" />
+      <module name="TIL" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.baekjoon.implementation.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -125,11 +125,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Q2164" />
         <item itemvalue="Application.Weekly_12" />
         <item itemvalue="Application.test" />
         <item itemvalue="Application.Q1158" />
         <item itemvalue="Application.Q1662" />
-        <item itemvalue="Application.Q14719" />
       </list>
     </recent_temporary>
   </component>
