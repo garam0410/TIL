@@ -46,26 +46,13 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.Q2164">
-    <configuration name="Q1158" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.baekjoon.implementation.Q1158" />
+  <component name="RunManager" selected="Application.Q10971">
+    <configuration name="Q10971" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q10971" />
       <module name="TIL" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.baekjoon.implementation.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Q1662" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.baekjoon.BFS.Q1662" />
-      <module name="TIL" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.baekjoon.BFS.*" />
+          <option name="PATTERN" value="com.example.완전탐색.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -79,6 +66,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.baekjoon.implementation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Q2580" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q2580" />
+      <module name="TIL" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.완전탐색.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -112,24 +112,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Q10971" />
+        <item itemvalue="Application.Q2580" />
         <item itemvalue="Application.Q2164" />
         <item itemvalue="Application.Weekly_12" />
         <item itemvalue="Application.test" />
-        <item itemvalue="Application.Q1158" />
-        <item itemvalue="Application.Q1662" />
       </list>
     </recent_temporary>
   </component>
@@ -157,6 +159,7 @@
       <workItem from="1634725805358" duration="6000" />
       <workItem from="1634899231206" duration="11498000" />
       <workItem from="1634956973205" duration="11087000" />
+      <workItem from="1635298472857" duration="8078000" />
     </task>
     <servers />
   </component>
