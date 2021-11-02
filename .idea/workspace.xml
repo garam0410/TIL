@@ -38,7 +38,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../untitled" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -46,6 +46,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Application.최고의집합">
     <configuration name="최고의집합" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.programmers.최고의집합" />
@@ -60,8 +61,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+=======
+  <component name="RunManager" selected="Application.Q16987">
+>>>>>>> 3d2c58710e5665707670efb08fd2c3cb9fd60cb5
     <configuration name="Q10971" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q10971" />
+      <module name="TIL" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.완전탐색.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Q16987" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q16987" />
       <module name="TIL" />
       <extension name="coverage">
         <pattern>
@@ -99,6 +116,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+=======
     <configuration name="Weekly_12" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.programmers.Weekly_12" />
       <module name="TIL" />
@@ -112,22 +132,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+>>>>>>> 3d2c58710e5665707670efb08fd2c3cb9fd60cb5
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="Application.최고의집합" />
+=======
+        <item itemvalue="Application.Q16987" />
+>>>>>>> 3d2c58710e5665707670efb08fd2c3cb9fd60cb5
         <item itemvalue="Application.Q10971" />
         <item itemvalue="Application.Q2580" />
         <item itemvalue="Application.Q2164" />
@@ -158,10 +181,15 @@
       <workItem from="1634441042361" duration="76000" />
       <workItem from="1634725805358" duration="6000" />
       <workItem from="1634899231206" duration="11498000" />
+<<<<<<< HEAD
       <workItem from="1634956973205" duration="11087000" />
       <workItem from="1635298472857" duration="9826000" />
       <workItem from="1635393795284" duration="1396000" />
       <workItem from="1635829583301" duration="6176000" />
+=======
+      <workItem from="1634956973205" duration="11712000" />
+      <workItem from="1635298472857" duration="8078000" />
+>>>>>>> 3d2c58710e5665707670efb08fd2c3cb9fd60cb5
     </task>
     <servers />
   </component>
@@ -411,6 +439,7 @@
           <option name="timeStamp" value="81" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+<<<<<<< HEAD
           <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/programmers/최고의집합.java</url>
           <line>45</line>
           <option name="timeStamp" value="84" />
@@ -424,6 +453,21 @@
           <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/programmers/최고의집합.java</url>
           <line>61</line>
           <option name="timeStamp" value="86" />
+=======
+          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/example/완전탐색/Q16987.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/example/완전탐색/Q16987.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/example/완전탐색/Q16987.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="84" />
+>>>>>>> 3d2c58710e5665707670efb08fd2c3cb9fd60cb5
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/programmers/DFS_BFS_1.java</url>
