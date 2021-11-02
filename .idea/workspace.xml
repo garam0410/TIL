@@ -46,7 +46,20 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.Q10971">
+  <component name="RunManager" selected="Application.최고의집합">
+    <configuration name="최고의집합" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.programmers.최고의집합" />
+      <module name="TIL" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.programmers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Q10971" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q10971" />
       <module name="TIL" />
@@ -99,19 +112,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.test" />
-      <module name="TIL" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -127,11 +127,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.최고의집합" />
         <item itemvalue="Application.Q10971" />
         <item itemvalue="Application.Q2580" />
         <item itemvalue="Application.Q2164" />
         <item itemvalue="Application.Weekly_12" />
-        <item itemvalue="Application.test" />
       </list>
     </recent_temporary>
   </component>
@@ -159,7 +159,9 @@
       <workItem from="1634725805358" duration="6000" />
       <workItem from="1634899231206" duration="11498000" />
       <workItem from="1634956973205" duration="11087000" />
-      <workItem from="1635298472857" duration="8078000" />
+      <workItem from="1635298472857" duration="9826000" />
+      <workItem from="1635393795284" duration="1396000" />
+      <workItem from="1635829583301" duration="6176000" />
     </task>
     <servers />
   </component>
@@ -407,6 +409,21 @@
           <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/test.java</url>
           <line>17</line>
           <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/programmers/최고의집합.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/programmers/최고의집합.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/programmers/최고의집합.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="86" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/programmers/DFS_BFS_1.java</url>
