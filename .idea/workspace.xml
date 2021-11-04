@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a213735-8801-456c-9639-b03376fd29ba" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-29__10_33__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-29__10_33__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingTest/problems/src/com/programmers/최고의집합.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodingTest/problems/src/com/programmers/최고의집합.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +47,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.Q21735">
+  <component name="RunManager" selected="Application.Q19699">
     <configuration name="Q10971" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q10971" />
       <module name="TIL" />
@@ -63,6 +63,19 @@
     </configuration>
     <configuration name="Q16987" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q16987" />
+      <module name="TIL" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.완전탐색.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Q19699" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q19699" />
       <module name="TIL" />
       <extension name="coverage">
         <pattern>
@@ -100,37 +113,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Q2580" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q2580" />
-      <module name="TIL" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.완전탐색.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Q19699" />
         <item itemvalue="Application.Q21735" />
         <item itemvalue="Application.Q19949" />
         <item itemvalue="Application.Q16987" />
         <item itemvalue="Application.Q10971" />
-        <item itemvalue="Application.Q2580" />
       </list>
     </recent_temporary>
   </component>
@@ -159,6 +161,7 @@
       <workItem from="1634899231206" duration="11498000" />
       <workItem from="1634956973205" duration="11712000" />
       <workItem from="1635298472857" duration="8078000" />
+      <workItem from="1636011505480" duration="1503000" />
     </task>
     <servers />
   </component>
