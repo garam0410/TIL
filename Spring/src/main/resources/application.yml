@@ -1,6 +1,19 @@
-spring:
-  thymeleaf:
-    cache: false
+spring :
+  profiles:
+   active: dev # 적용할 환경 선택
+   
+--- # 구분선
 
-server:
-  port: 8080
+spring:
+  profiles: dev
+  
+server :
+  port : 8080
+  
+--- # 구분선
+
+spring:
+  profiles: deploy
+  
+server :
+  port : 8000

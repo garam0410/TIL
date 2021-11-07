@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a213735-8801-456c-9639-b03376fd29ba" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-29__10_33__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-10-29_오후_10_33_[Default_Changelist]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodingTest/problems/src/com/programmers/최고의집합.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodingTest/problems/src/com/programmers/최고의집합.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Spring/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring/src/main/java/com/example/controller/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring/src/main/java/com/example/study/StudyApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring/src/test/java/com/example/study/StudyApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,19 +119,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Q19699" />
@@ -162,6 +155,7 @@
       <workItem from="1634956973205" duration="11712000" />
       <workItem from="1635298472857" duration="8078000" />
       <workItem from="1636011505480" duration="1503000" />
+      <workItem from="1636262029425" duration="1087000" />
     </task>
     <servers />
   </component>
