@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.example.hello.domain.Member;
 import com.example.hello.repository.MemberRepository;
 
-@Service
 public class MemberService {
 	// 서비스 작성에는 Repository 필요
 	private final MemberRepository memberRepository;
