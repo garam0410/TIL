@@ -1,6 +1,6 @@
 package com.cos;
 
-public class COSPRO_1급_Java_3 {
+public class COSPRO_1급_Java_1차_3 {
     static class Pair{
         public int firstNum;
         public int secondNum;

@@ -1,6 +1,6 @@
 package com.cos;
 
-public class COSPRO_1급_Java_2 {
+public class COSPRO_1급_Java_1차_2 {
     static String func_a(String str, int len){
         String padZero = "";
         int padSize = len - str.length(); // 빈칸 채우기

@@ -2,7 +2,7 @@ package com.cos;
 
 import java.util.Arrays;
 
-public class COSPRO_1급_Java_8 {
+public class COSPRO_1급_Java_1차_8 {
     static int[] solution(int N, int[] votes) {
 
         int voteCounter[] = new int[11];

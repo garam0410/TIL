@@ -2,7 +2,7 @@ package com.cos;
 
 import java.util.Arrays;
 
-public class COSPRO_1급_Java_7 {
+public class COSPRO_1급_Java_1차_7 {
     static int[] solution(int[] arrA, int[] arrB) {
         int arrA_idx = 0, arrB_idx = 0;
         int arrA_len = arrA.length;

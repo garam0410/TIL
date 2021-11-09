@@ -1,6 +1,6 @@
 package com.cos;
 
-public class COSPRO_1급_Java_9 {
+public class COSPRO_1급_Java_1차_9 {
     static int func(int record){
         if(record == 0) return 1;
         else if(record == 1) return 2;

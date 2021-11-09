@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a213735-8801-456c-9639-b03376fd29ba" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-11-08__3_20__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-11-08__3_20__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingTest/problems/src/com/cos/COSPRO_1급_Java_1.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodingTest/problems/src/com/cos/COSPRO_1급_Java_1차_1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingTest/problems/src/com/cos/COSPRO_1급_Java_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodingTest/problems/src/com/cos/COSPRO_1급_Java_1차_2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingTest/problems/src/com/cos/COSPRO_1급_Java_3.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodingTest/problems/src/com/cos/COSPRO_1급_Java_1차_3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingTest/problems/src/com/cos/COSPRO_1급_Java_5.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodingTest/problems/src/com/cos/COSPRO_1급_Java_1차_5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingTest/problems/src/com/cos/COSPRO_1급_Java_7.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodingTest/problems/src/com/cos/COSPRO_1급_Java_1차_7.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingTest/problems/src/com/cos/COSPRO_1급_Java_8.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodingTest/problems/src/com/cos/COSPRO_1급_Java_1차_8.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingTest/problems/src/com/cos/COSPRO_1급_Java_9.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodingTest/problems/src/com/cos/COSPRO_1급_Java_1차_9.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,8 +56,8 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="COSPRO_1급_Java_5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.cos.COSPRO_1급_Java_5" />
+    <configuration name="COSPRO_1급_Java_1차_5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cos.COSPRO_1급_Java_1차_5" />
       <module name="TIL" />
       <extension name="coverage">
         <pattern>
@@ -113,13 +121,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -127,7 +137,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.COSPRO_1급_Java_5" />
+        <item itemvalue="Application.COSPRO_1급_Java_1차_5" />
         <item itemvalue="Application.Q19699" />
         <item itemvalue="Application.Q21735" />
         <item itemvalue="Application.Q19949" />
@@ -436,7 +446,7 @@
           <option name="timeStamp" value="90" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/cos/COSPRO_1급_Java_5.java</url>
+          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/cos/COSPRO_1급_Java_1차_5.java</url>
           <line>21</line>
           <option name="timeStamp" value="96" />
         </line-breakpoint>
@@ -465,9 +475,9 @@
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/cos/COSPRO_1급_Java_5.java</url>
+          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/cos/COSPRO_1급_Java_1차_5.java</url>
           <line>37</line>
-          <properties class="com.cos.COSPRO_1급_Java_5">
+          <properties class="com.cos.COSPRO_1급_Java_1차_5">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="95" />

@@ -2,7 +2,7 @@ package com.cos;
 
 import java.util.Arrays;
 
-public class COSPRO_1급_Java_5 {
+public class COSPRO_1급_Java_1차_5 {
 
     static int[][] matrix;
     static int maxValue;

@@ -3,7 +3,7 @@ package com.cos;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class COSPRO_1급_Java_1 {
+public class COSPRO_1급_Java_1차_1 {
     interface DeliveryStore{
         public void setOrderList(String[] orderList);
         public int getTotalPrice();
