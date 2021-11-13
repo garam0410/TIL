@@ -1,5 +1,6 @@
 package com.example.hello;
 
+import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -9,5 +10,4 @@ class HelloApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

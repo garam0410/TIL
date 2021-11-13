@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9a213735-8801-456c-9639-b03376fd29ba" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodingTest/problems/src/com/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodingTest/problems/src/com/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Spring/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring/src/main/java/com/example/hello/repository/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring/src/main/java/com/example/hello/repository/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring/src/test/java/com/example/hello/HelloApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring/src/test/java/com/example/hello/HelloApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,6 +167,8 @@
       <workItem from="1636262029425" duration="1087000" />
       <workItem from="1636361884411" duration="6544000" />
       <workItem from="1636523508052" duration="3087000" />
+      <workItem from="1636607936083" duration="609000" />
+      <workItem from="1636766994814" duration="2947000" />
     </task>
     <servers />
   </component>
@@ -395,11 +401,6 @@
           <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/baekjoon/BFS/Q1662.java</url>
           <line>31</line>
           <option name="timeStamp" value="77" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/test.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="81" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/CodingTest/problems/src/com/example/완전탐색/Q16987.java</url>

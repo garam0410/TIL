@@ -4,7 +4,7 @@ import java.util.*;
 
 import com.example.hello.domain.Member;
 
-public interface MemberRepository {
+public interface MemberRepository{
 	// 회언 가입
 	Member save(Member member); // 회원 저장하면 저장된 회원 반환
 	
