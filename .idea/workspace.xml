@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9a213735-8801-456c-9639-b03376fd29ba" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodingTest/problems/src/com/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodingTest/problems/src/com/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Spring/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring/src/main/java/com/example/hello/repository/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring/src/main/java/com/example/hello/repository/MemberRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring/src/test/java/com/example/hello/HelloApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Spring/src/test/java/com/example/hello/HelloApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +39,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../untitled" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab/web" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -117,17 +113,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -168,7 +153,8 @@
       <workItem from="1636361884411" duration="6544000" />
       <workItem from="1636523508052" duration="3087000" />
       <workItem from="1636607936083" duration="609000" />
-      <workItem from="1636766994814" duration="2947000" />
+      <workItem from="1636766994814" duration="2973000" />
+      <workItem from="1636953542227" duration="23000" />
     </task>
     <servers />
   </component>
