@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a213735-8801-456c-9639-b03376fd29ba" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-11-08__3_20__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-11-08_오후_3_20_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-11-09__10_18__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-11-09_오후_10_18_[Default_Changelist]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +43,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab/web" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -47,7 +51,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Weekly_모음사전">
     <configuration name="COSPRO_1급_Java_1차_5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.cos.COSPRO_1급_Java_1차_5" />
       <module name="TIL" />
@@ -87,19 +91,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Q19949" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q19949" />
-      <module name="TIL" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.완전탐색.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Q21735" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.완전탐색.Q21735" />
       <module name="TIL" />
@@ -113,13 +104,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Weekly_모음사전" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.programmers.Weekly_모음사전" />
+      <module name="TIL" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.programmers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Weekly_모음사전" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.COSPRO_1급_Java_1차_5" />
         <item itemvalue="Application.Q19699" />
         <item itemvalue="Application.Q21735" />
-        <item itemvalue="Application.Q19949" />
       </list>
     </recent_temporary>
   </component>
@@ -155,6 +170,7 @@
       <workItem from="1636607936083" duration="609000" />
       <workItem from="1636766994814" duration="2973000" />
       <workItem from="1636953542227" duration="23000" />
+      <workItem from="1637150902560" duration="1174000" />
     </task>
     <servers />
   </component>
