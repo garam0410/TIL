@@ -321,6 +321,130 @@ Repository는 Interface로 생성한다. 왜냐하면, 아직 데이터 저장�
 
 - 대용량 데이터 기반의 환경에서도 튜닝이 어려워 상대적으로 기존방식보다 성능이 떨어질 수 있음
 
+<br>
+
+## **Spring Data JPA 구현**
+
+### **@Entity**
+
+- JPA 의 시작
+
+- 테이블과 매핑하 클래스에 @Entity Annotation을 붙여주는 것으로 JPA에게 해당 클래스는 데이터베이스와 매핑할 객체다 라는 것을 알려줌
+
+- 중요 원칙 3가지
+
+  - 기본 생성자 꼭 가지고 있기
+
+  - final class, interface, enum, inner 클래스가 아닌 기본 클래스
+
+  - 저장할 필드에 final을 사용하지 않을 것
+
+<br>
+
+### **@Table**
+
+- Entity와 매핑할 테이블을 이름으로 직접 지정 ( @Table(name = "테이블명") )
+
+- DDL 제약 조건 추가, 스키마 매핑, 카탈로그 매핑 기능 존재
+
+<br>
+
+### **@Id**
+
+- 기본키 매핑
+
+- Primary Key 매핑
+
+<br>
+
+### **@GeneratedValue**
+
+- 기본 키의 다양한 생성 전략 명시 가능 ( @GeneratedValue(strategy = GenerationType.IDENTITY) )
+
+- 기본키는 직접 할당과 자동 생성이 나뉜다
+
+- IDENTITY : 기본키 생성을 데이터베이스에 위임 (JPA에서는 이거 사용)
+
+- SEQUENCE : 데이터베이스 시퀸스를 이용해서 기본키 할당
+
+- TABLE : 키 생성 테이블을 사용
+
+<br>
+
+### **@Column**
+
+- 기본적으로 JPA에서 @Column을 명시하지 않으면 해당 필드의 이름으로 매핑
+
+- 만약 실제 Table에서 기본키가 member_id 이고, Java Class 에서는 id로 쓰이는 경우, @Column(name = "") 속성을 이용하면 해결할 수 있음
+
+- @Column(nullable = true), @Column(length = 400)
+
+- nullable은 null 제약조건, length는 길이 제약조건
+
+<br>
+
+### **@ManyToOne**
+
+- 다대일 매핑
+
+- ex) OrderItem (다) : User (일)
+
+- 보통 참조하는 Entity에 사용, 외래키를 가지고 있는 엔티티라고 생각하면 편함
+
+- @ManyToOne(FatchType.EAGER)
+  
+  - 엔티티를 조회할 떄, 연관된 엔티티를 한번에 조회
+
+  - 즉, 실제 객체가 사용되지 않더라도 조회
+
+- @ManyToOne(FatchType.LAZY) => **권장**
+
+  - 엔티티를 조회할 떄, 연관된 엔티티는 실제 사용시점에 조회
+
+  - 즉, 실제 객체가 사용되는 시점까지 조회를 미룸
+
+<br>
+
+### **@OneToMany**
+
+- 일대다 매핑
+
+- User (일) : OrderItem (다)
+
+- 보통 참조하는 엔티티에서 사용
+
+- List Collection을 참조변수로 함
+
+- @OneToMany(mappedBy = "")
+  
+  - 양방향 매핑에서 사용되는 개념
+
+  - 양방향을 참조될 때, 참조당하는 엔티티에서 사용
+
+  - mappedBy = "참조하는 엔티티에 있는 변수 이름" 으로 작성
+
+  - 현재 자신의 참조가 해당 엔티티에 어떤 변수로 지정되었는지 JPA에 알려주기 위함
+
+<br>
+
+### **양방향과 단방향**
+
+- ManyToOne만 존재한다면, 단방향 연관관계라고 함
+
+- 단방향 연관관계가 객체지향적으로 훨씬 이득
+
+- 하지만, 양방향을 사용해야하는 어쩔 수 없는 상황들이 생김
+
+- **기억**
+
+  - 양방향 연관관계가 될 떄, 왜래 키를 관리하고 있을 주체를 확실히 할 것
+
+  - 왜래 키를 갖는 주체는 DB 테이블에 왜래 키가 있는 쪽으로 함
+
+  - 외래 키를 갖는 쪽에서만 UPDATE와 INSERT를 수행, 없는 쪽은 SELECT만 수행
+
+  
+
 <br><br>
 
 ---
