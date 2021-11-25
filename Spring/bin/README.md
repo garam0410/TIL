@@ -6,11 +6,83 @@
 
 ### **동작과정**
 
-Spring은 프로젝트가 처음 시작할 떄, @Controller, @Service, @Repository Annotation이 붙어 있으면, 스캔하여 Spring Bean으로 등록한다. 그리고 @Autowired Annotation 으로 의존 관계를 연결해주는 방식이다. @Component Annotation이 있으면 Spring Bean으로 자동 등록이 되며, @Controller, @Service, @Repository가 자동으로 등록되는 이유도 Component 스캔 때문이다. **Spring 컨테이너에서 Bean이 관리된다** 라고 표현한다.
+Spring은 프로젝트가 처음 시작할 떄, @Controller, @Service, @Repository Annotation이 붙어 있으면, 스캔하여 Spring Bean으로 등록한다. 그리고 @Autowired Annotation 으로 의존 관계를 연결해주는 방식이다. @Component Annotation이 있으면 ComponentScan을 통해서 Spring Bean으로 자동 등록이 되며, @Controller, @Service, @Repository가 자동으로 등록되는 이유는 @Component Annotation을 포함하고 있기 대문이다. 이 작업은 오직 하나의 인스턴스를 생성하는 싱글톤 패턴을 사용하며, 싱글톤 패턴이기 때문에 같은 Spring Bean 이면 모두 같은 인스턴스라고 할 수 있다. **Spring 컨테이너에서 Bean이 관리된다** 라고 표현한다.
 
 이때, Controller가 Service 클래스를 new ..Service(); 로 호출 하지 않고, Spring이 관리하는 Spring Service 객체를 받아서 사용 해야한다. 왜냐하면 여러 Controller 들이 Service를 사용할 수 있는데, 여러개를 생성할 필요 없이 공유하는 것이 좋기 때문이다. 
 
-그래서 Controller 에 @Autowired Annotation을 붙임으로써, Spring은 저장하고 있는 Service 객체를 Controller가 생성될 떄 가져와 준다. 즉, 생성자에 @Autowired가 있으면 Spring이 연관된 객체를 Spring 컨테이너에서 찾아서 넣어주고, 이렇게 객체 의존관계를 외부에서 넣어주는 것을 DI(Dependency Injection) 의존성 주입이라고 한다. @Autowired로 Spring이 직접 주입해주는 것
+그래서 Controller 에 @Autowired Annotation을 붙임으로써, Spring은 저장하고 있는 Service 객체를 Controller가 생성될 떄 가져와 준다. 즉, 생성자에 @Autowired가 있으면 Spring이 연관된 객체를 Spring 컨테이너에서 찾아서 넣어주고, 이렇게 객체 의존관계를 외부에서 넣어주는 것을 DI(Dependency Injection) 의존성 주입이라고 한다. @Autowired로 Spring이 직접 주입해주는 것이다.
+
+<br>
+
+### **왜 @Controller, @Service, @Repository 일까?**
+
+컨트롤러로 외부의 요청을 받고 서비스에서 비즈니스 로직을 만들고 레포지토리에서 데이터를 저장하는 정형화된 패턴이기 때문
+
+<br>
+
+### **의존성 주입**
+
+<br>
+
+- 필드 주입
+
+    - 소스 수정이 쉽지 않으므로 권장하지 않음
+
+<br>
+
+- setter 주입
+
+    - 생성은 생성자대로 되고 setter는 따로 실행되면서 의존성 주입 샐행
+
+    - setter 주입은 public으로 누구나 접근 가능하기 때문에 누구나 변경할 수 있는 상황 발생
+
+    - 이는 큰 문제가 될수 있으므로 권장되지 않는 방식
+
+<br>
+
+- 생성자 주입 (가장 많이 쓰임)
+
+    - 가장 권장되는 방식
+
+    - 생성자가 1개인 경우 @Autowired를 생략해도 주입이 가능하도록 편의 제공
+
+    - 의존 관계가 실행중에 독적으로 변하는 경우는 거의 없기 때문에 권장
+
+<br>
+
+### **생성자 주입을 사용해야 하는 이유**
+
+<br>
+
+- 객체의 불변성 확보
+
+    - 의존 관계 주입의 변경이 필요한 상황은 거의 없음
+
+    - OOP 원칙 중 개방-폐쇄의 법칙을 위반하지 않도록 생성자 주입을 통해 변경의 가능성을 배제하고 불변성 보장
+
+<br>
+
+- 테스트 코드 작성
+
+    - 실제 코드가 필드 주입으로 작성된 경우에는 순수 자바 코드로 단위 테스트를 작성하는 것이 불가능
+
+<br>
+
+- final 키워드 작성 가능
+
+    - 생성자 주입을 사용하면 필드 객체에 final 키워드를 사용할 수 있으며, 컴파일 시점에 누락된 의존성 확인 가능
+
+    - 다른 주입 방법들은 객체의 생성(생성자 호출) 이후에 호출 되므로 final 키워드 사용 불가
+
+<br>
+
+- 순환, 참조 에러 방지
+
+    - 어프리케이션 구동 시점에 순환 참조 에러를 방지할 수 있다
+
+    - StackOverFlow 방지
+
+<br>
 
 <br><br>
 
@@ -169,6 +241,18 @@ Repository는 Interface로 생성한다. 왜냐하면, 아직 데이터 저장�
 <br>
 
 ## **Annotation**
+
+<br>
+
+### **@Autowired**
+
+<br>
+
+- 생성자에 @Autowired가 있으면 Spring이 연관된 객체를 Spring 컨테이너에 찾아서 넣어줌
+
+- 이것을 의존성 주입(DI) 라고 함
+
+- Spring이 관리하는 객체에서만 동작
 
 <br>
 

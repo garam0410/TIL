@@ -623,6 +623,28 @@ Spring Security는 인증과 권한에 대한 부분을 Filter 흐름에 따라 
 
   특정 자원에 대한 권한이 있는지를 검사하여 접근 허용 여부를 결정
 
+<br>
+
+### **전체적인 흐름**
+
+<br>
+
+1. AuthenticationFilter가 HttpServletRequest에서 사용자가 요청한 ID,PW를 인터셉트
+<br>
+2. AuthenticationFilter가 HttpServletRequest에서 사용자가 요청한 Form의 ID, PW를 인터셉트한다.
+<br>
+3. AuthenticationManager(ProviderManager)는 요청에 맞는 AuthenticationProvider에게 인증 역할을 위임한다.
+<br>
+4. Manager는 Filter가 인터셉트한 정보(ID, PW)로 UsernamePasswordToken객체를 생성하여 넘겨주면 다시 위임한 Provider에게 넘겨준다.
+<br>
+5. Provider는 UserDetailsService에게 사용자 아이디를 주고 DB에서 인증할 객체를 UserDetails객체로 전달받는다.
+<br>
+6. 전달 받은 객체와 사용자가 요청한 정보로 만들어진 객체를 통해 인증을 진행한다.
+<br>
+7. 인증이 성공하면, Authentication(UsernamePasswordAuthenticationToken) 객체를 SecurityContextHolder를 통해 SecurityContext가져와 담고 AuthenticationSuccessHandler 처리를 한다.
+<br>
+8. 인증에 실패하면, 인증 실패 핸들러(AuthenticationFailureHandle) 처리를 한다.
+
 <br><br>
 
 ---
