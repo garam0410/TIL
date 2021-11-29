@@ -130,6 +130,14 @@
 
 <br>
 
+- 초기에는 JDBC API를 직접 사용하여 개발
+
+- JDBC API를 직접 사용하여 개발하다가 MyBatis를 이용해서 SQL Mapper를 통해 JDBC 코드를 많이 줄일 수 있었음
+
+- 하지만, 여전히 CRUD에 대해서 SQL을 반복적으로 작성해야함.
+
+- 이 문제를 해결해주는 것이 ORM 이고, Java 진영의 ORM 표준인 JPA가 해답.
+
 <br>
 
 ## **3. JPA의 내부는 어떻게 생겼을까?**
@@ -189,3 +197,7 @@ Query
 - 인터페이스로서 각각의 JPA 벤더에 의해 구현
 
 - 각 기준에 충족하는 관계형 객체를 얻음
+
+<br>
+
+Persistence가 EntityManagerFactory 인스턴스를 생성한다. 생성된 EntityManagerFactory가 EntityManager를 여러개 생성할 수 있다. 이 때, EntityManagerFactory와 EntityManager는 일대다 관계이다. 각각의 EntityManager는 EntityTransaction 인스턴스가 작동하는데 이때, EntityManager와 EntityTransaction은 일대일 관계이다. EntityManager는 여러개의 Query 객체를 관리하기 때문에 일대다관계이다. EntityManager는 여러개의 Entity 객체를 관리한다. 따라서 EntityManager와 Entity 객체는 일대다 관계이다. 
