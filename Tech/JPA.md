@@ -30,20 +30,24 @@
 
 <br>
 
-## **4. JPA Mapping (맞춰보자)**
+## **4. 영속성 컨텍스트**
+
+<br>
+
+- 영속성(Persistence) 이란
+
+- JPA에서의 영속성(Persistence)
+
+- 영속성 컨텍스트 (cascade / Transaction 등)
+
+<br>
+
+## **5. JPA Mapping (맞춰보자)**
 
 <br>
 
 - JPA의 Mapping (연관관계 / Proxy / Lazy 로딩 등)
 
-<br>
-
-
-7. 영속성(Persistence) 이란
-
-8. JPA에서의 영속성(Persistence)
-
-5. 영속성 컨텍스트 (cascade / Transaction 등)
 
 <br>
 
