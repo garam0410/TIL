@@ -174,6 +174,10 @@ EntityManagerFactory
 
 - EntityManager 클래스의 인스턴스를 생성 및 관리
 
+- 사용시에 딱 한번만 생성하고 공유해서 사용
+
+- EntityManager를 찍어내는 공장이므로 비용이 상당이 큼
+
 <br>
 
 EntityTransaction
