@@ -42,6 +42,8 @@
 
 - flush()
 
+- 준영속
+
 <br>
 
 ## **5. JPA Mapping**
