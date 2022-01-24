@@ -5,5 +5,4 @@ import org.springframework.web.multipart.MultipartFile
 
 interface FileService {
     fun uploadFile(fileList: MutableList<MultipartFile>)
-    fun downloadFile(fileModel: FileModel)
 }

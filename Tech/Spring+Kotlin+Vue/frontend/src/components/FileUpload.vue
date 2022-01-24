@@ -1,9 +1,14 @@
 <template>
     <div>
-        <h3>파일 업로드 결과: { { this.response === '' ? 'waiting' : this.response } }</h3>
+        <!-- <h3>파일 업로드 결과: { { this.response === '' ? 'waiting' : this.response } }</h3> -->
         <div>
             <button @click="selectUploadFile()">이미지 선택</button>
         </div>
+
+        <div>
+            <img v-bind:src="imgSrc"/>
+        </div>
+        
     </div>
 </template>
 
@@ -14,7 +19,9 @@ export default {
     name: 'CorsReuqest',
     data() {
         return {
-            response: ''
+            response: '',
+            img : false,
+            imgSrc : ''
         }
     },
     methods: {
@@ -36,8 +43,16 @@ export default {
                 }
                 axios.post('/api/file/upload', formData, { headers: { 'Content-Type': 'multipart/form-data' } }).then(response => {
                     vue.response = response.data
+                    // alert(elem.files[0].name)
+                    // this.imgSrc = "../../../backend/src/images/"+ elem.files[0].name
+                    this.imgSrc = "http://localhost:8080/file/" + elem.files[0].name
+                    this.img = true;
+                    // alert(this.imgSrc)
+                    // alert(this.img)
+                    alert(response.data.status)
                 }).catch(error => {
                     vue.response = error.message
+                    alert(error)
                 })
             }
         }

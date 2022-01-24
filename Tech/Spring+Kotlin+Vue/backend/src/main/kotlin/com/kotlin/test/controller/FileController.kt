@@ -8,15 +8,10 @@ import org.springframework.web.multipart.MultipartFile
 @RestController
 @RequestMapping("/api/file")
 class FileController(
-    private val fileService: FileService
+        private val fileService: FileService,
 ) {
     @PostMapping("/upload")
-    fun uploadFile(@RequestParam("fileList") fileList: MutableList<MultipartFile>){
+    fun uploadFile(@RequestParam("fileList") fileList: MutableList<MultipartFile>) {
         return fileService.uploadFile(fileList)
-    }
-
-    @PostMapping("/download")
-    fun downloadFile(@RequestBody fileModel: FileModel){
-        return fileService.downloadFile(fileModel)
     }
 }

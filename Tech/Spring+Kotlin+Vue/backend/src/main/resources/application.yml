@@ -24,6 +24,5 @@ spring:
       hibernate:
         format_sql: false
 
-  file:
-    download:
-      directory :
+file:
+  directory: C:\Users\User\Desktop\TIL\Tech\Spring+Kotlin+Vue\backend\src\images
