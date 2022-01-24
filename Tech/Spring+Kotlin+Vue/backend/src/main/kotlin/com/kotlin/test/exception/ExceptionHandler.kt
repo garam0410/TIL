@@ -1,18 +1,15 @@
 package com.kotlin.test.exception
 
 import com.kotlin.test.model.ResponseErrorModel
-import mu.KotlinLogging
+import com.kotlin.test.util.log
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
 
-private val log = KotlinLogging.logger {}
-
 @RestControllerAdvice
 class ExceptionHandler {
-
-    @ExceptionHandler(value = [GlobalException::class])
-    fun handleGlobalException(e: GlobalException):ResponseErrorModel{
-        log.error(e.serverMsg)
+    @ExceptionHandler(value = [WebException::class])
+    fun handleGlobalException(e: WebException): ResponseErrorModel {
+        log().error(e.serverMsg)
         return ResponseErrorModel(e)
     }
 }

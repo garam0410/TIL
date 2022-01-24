@@ -49,10 +49,7 @@ export default {
                     this.img = true;
                     // alert(this.imgSrc)
                     // alert(this.img)
-                    alert(response.data.status)
-                }).catch(error => {
-                    vue.response = error.message
-                    alert(error)
+                    alert(response.data.message)
                 })
             }
         }

@@ -9,7 +9,6 @@ class WebMvcConfig : WebMvcConfigurer {
 
     override fun addResourceHandlers(registry: ResourceHandlerRegistry) {
         registry.addResourceHandler("/file/**")
-                .addResourceLocations("file:///C:/Users/User/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/images/")
-//                .addResourceLocations("/src/images/")
+            .addResourceLocations("/Users/kgr/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/images/")
     }
 }

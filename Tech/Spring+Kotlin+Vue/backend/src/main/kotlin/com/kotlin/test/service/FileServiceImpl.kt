@@ -1,11 +1,9 @@
 package com.kotlin.test.service
 
 import com.kotlin.test.exception.ExceptionDefinition
-import com.kotlin.test.exception.GlobalException
-import com.kotlin.test.model.FileModel
+import com.kotlin.test.exception.WebException
 import com.kotlin.test.respository.DocumentRepository
 import com.kotlin.test.util.FileUtil
-import mu.KotlinLogging
 import org.springframework.stereotype.Service
 import org.springframework.web.multipart.MultipartFile
 
@@ -16,7 +14,7 @@ class FileServiceImpl(
     override fun uploadFile(fileList: MutableList<MultipartFile>): Unit {
 
         if (fileList == null) {
-            throw GlobalException(ExceptionDefinition.UPLOAD_FILE_ERROR)
+            throw WebException(ExceptionDefinition.UPLOAD_FILE_ERROR)
         }
 
         for (file in fileList) {
