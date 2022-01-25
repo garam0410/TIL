@@ -2,6 +2,7 @@ package com.kotlin.test.service
 
 import com.kotlin.test.exception.ExceptionDefinition
 import com.kotlin.test.exception.WebException
+import com.kotlin.test.model.FileModel
 import com.kotlin.test.respository.DocumentRepository
 import com.kotlin.test.util.FileUtil
 import org.springframework.stereotype.Service
@@ -11,14 +12,24 @@ import org.springframework.web.multipart.MultipartFile
 class FileServiceImpl(
         private val documentRepository: DocumentRepository,
 ) : FileService {
-    override fun uploadFile(fileList: MutableList<MultipartFile>): Unit {
+    override fun uploadFileToTmpPath(fileList: MutableList<MultipartFile>): MutableList<FileModel> {
 
-        if (fileList == null) {
+        if (fileList.isEmpty()) {
             throw WebException(ExceptionDefinition.UPLOAD_FILE_ERROR)
         }
 
+        var tmpFileList: MutableList<FileModel> = mutableListOf()
+
         for (file in fileList) {
-            documentRepository.save(FileUtil().uploadFile(file).toEntity())
+            tmpFileList.add(
+                    documentRepository.save(FileUtil().uploadFileToTmpDir(file).toEntity())
+            )
         }
+
+        return tmpFileList
+    }
+
+    override fun moveFileToRealPath(fileModel: FileModel) {
+//        FileUtil().moveFileToRealPath(fileModel)
     }
 }

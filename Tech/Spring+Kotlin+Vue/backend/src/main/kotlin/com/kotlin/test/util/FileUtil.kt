@@ -9,25 +9,26 @@ import java.io.FileOutputStream
 
 class FileUtil {
 
-    private val dirPath: String = "/Users/kgr/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/images"
+    private val tmpDir: String = "C:\\Users\\User\\Desktop\\TIL\\Tech\\Spring+Kotlin+Vue\\backend\\src\\tmpDir\\"
+    private val readDir: String = "C:\\Users\\User\\Desktop\\TIL\\Tech\\Spring+Kotlin+Vue\\backend\\src\\realDir\\"
 
-    fun uploadFile(file: MultipartFile): FileModel {
+    fun uploadFileToTmpDir(file: MultipartFile): FileModel {
 
-        if (file.bytes == null) {
+        if (file.bytes.isEmpty()) {
             throw WebException(ExceptionDefinition.BAD_FILE_SIZE)
         }
 
-        val path: String = dirPath + file.originalFilename
+        val path: String = tmpDir + file.originalFilename
 
         var writer = FileOutputStream(File(path))
         writer.write(file.bytes)
         writer.close()
 
         return FileModel(
-            fileName = file.originalFilename,
-            filePath = path,
-            fileSize = file.size,
-            contentType = file.contentType
+                fileName = file.originalFilename,
+                filePath = path,
+                fileSize = file.size,
+                contentType = file.contentType
         )
     }
 }

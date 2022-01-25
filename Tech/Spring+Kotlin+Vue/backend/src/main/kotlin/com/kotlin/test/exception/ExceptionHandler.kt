@@ -2,14 +2,23 @@ package com.kotlin.test.exception
 
 import com.kotlin.test.model.ResponseErrorModel
 import com.kotlin.test.util.log
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
 
 @RestControllerAdvice
 class ExceptionHandler {
+
     @ExceptionHandler(value = [WebException::class])
-    fun handleGlobalException(e: WebException): ResponseErrorModel {
+    fun handleWebException(e: WebException): ResponseEntity<ResponseErrorModel> {
         log().error(e.serverMsg)
-        return ResponseErrorModel(e)
+        return ResponseEntity.status(e.httpStatus).body(ResponseErrorModel(e))
+    }
+
+    @ExceptionHandler(value = [RuntimeException::class])
+    fun handleGlobalException(): ResponseEntity<ResponseErrorModel> {
+        log().error(ExceptionDefinition.INTERNAL_SERVER_ERROR.serverMsg)
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ResponseErrorModel())
     }
 }

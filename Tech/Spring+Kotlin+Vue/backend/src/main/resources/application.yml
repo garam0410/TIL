@@ -25,4 +25,4 @@ spring:
         format_sql: false
 
 file:
-  directory: C:\Users\User\Desktop\TIL\Tech\Spring+Kotlin+Vue\backend\src\images
+  directory: C:\\Users\\User\\Desktop\\TIL\\Tech\\Spring+Kotlin+Vue\\backend\\src\\images\\

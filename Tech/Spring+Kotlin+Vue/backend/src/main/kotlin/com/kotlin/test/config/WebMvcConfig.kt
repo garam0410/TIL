@@ -8,7 +8,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 class WebMvcConfig : WebMvcConfigurer {
 
     override fun addResourceHandlers(registry: ResourceHandlerRegistry) {
-        registry.addResourceHandler("/file/**")
-            .addResourceLocations("/Users/kgr/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/images/")
+        registry.addResourceHandler("/tmp/file/**")
+                .addResourceLocations("file:///C:/Users/User/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/tmpDir/")
+
+        registry.addResourceHandler("/real/file/**")
+                .addResourceLocations("file:///C:/Users/User/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/realDir/")
     }
 }

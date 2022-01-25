@@ -6,7 +6,7 @@
         </div>
 
         <div>
-            <img v-bind:src="imgSrc"/>
+            <img src="http://localhost:8080/file/test.png"/>
         </div>
         
     </div>
@@ -32,7 +32,7 @@ export default {
             elem.id = 'image'
             elem.type = 'file'
             elem.accept = 'image/*'
-            elem.multiple = true
+            elem.multiple = false
             // 클릭
             elem.click();
             // 이벤트 감지
@@ -43,13 +43,10 @@ export default {
                 }
                 axios.post('/api/file/upload', formData, { headers: { 'Content-Type': 'multipart/form-data' } }).then(response => {
                     vue.response = response.data
-                    // alert(elem.files[0].name)
-                    // this.imgSrc = "../../../backend/src/images/"+ elem.files[0].name
-                    this.imgSrc = "http://localhost:8080/file/" + elem.files[0].name
-                    this.img = true;
-                    // alert(this.imgSrc)
-                    // alert(this.img)
-                    alert(response.data.message)
+                    alert(response.data[0].filePath)
+                }).catch(error => {
+                    vue.response = error.response.data
+                    alert(vue.response.message)
                 })
             }
         }
