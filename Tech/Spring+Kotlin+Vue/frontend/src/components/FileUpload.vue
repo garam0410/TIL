@@ -6,7 +6,7 @@
         </div>
 
         <div>
-            <img src="http://localhost:8080/file/test.png"/>
+            <img src="http://localhost:8080/tmp/file/test.png"/>
         </div>
         
     </div>
@@ -39,11 +39,11 @@ export default {
             elem.onchange = function() {
                 const formData = new FormData()
                 for (var index = 0; index < this.files.length; index++) {
-                    formData.append('fileList', this.files[index])
+                    formData.append('file', this.files[index])
                 }
                 axios.post('/api/file/upload', formData, { headers: { 'Content-Type': 'multipart/form-data' } }).then(response => {
                     vue.response = response.data
-                    alert(response.data[0].filePath)
+                    alert(response.data)
                 }).catch(error => {
                     vue.response = error.response.data
                     alert(vue.response.message)

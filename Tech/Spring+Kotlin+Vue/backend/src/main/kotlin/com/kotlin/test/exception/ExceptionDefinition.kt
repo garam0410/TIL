@@ -13,5 +13,6 @@ enum class ExceptionDefinition(
 
     // file
     BAD_FILE_SIZE(HttpStatus.BAD_REQUEST, "파일 크기 오류", "파일 크기 오류"),
-    UPLOAD_FILE_ERROR(HttpStatus.BAD_REQUEST, "업로드할 파일이 없습니다", "업로드할 파일이 없습니다.")
+    UPLOAD_FILE_ERROR(HttpStatus.BAD_REQUEST, "업로드할 파일이 없습니다", "업로드할 파일이 없습니다."),
+    NOT_FIND_FILE(HttpStatus.BAD_REQUEST, "파일이 없습니다", "파일이 없습니다")
 }

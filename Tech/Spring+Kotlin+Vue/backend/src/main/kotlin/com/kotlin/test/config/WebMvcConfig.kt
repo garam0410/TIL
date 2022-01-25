@@ -9,7 +9,7 @@ class WebMvcConfig : WebMvcConfigurer {
 
     override fun addResourceHandlers(registry: ResourceHandlerRegistry) {
         registry.addResourceHandler("/tmp/file/**")
-                .addResourceLocations("file:///C:/Users/User/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/tmpDir/")
+                .addResourceLocations("/Users/kgr/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/tmpDir/")
 
         registry.addResourceHandler("/real/file/**")
                 .addResourceLocations("file:///C:/Users/User/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/realDir/")
