@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
 import org.springframework.web.multipart.MultipartException
+import java.io.IOException
 
 @RestControllerAdvice
 class ExceptionHandler {
@@ -17,9 +18,10 @@ class ExceptionHandler {
         return ResponseEntity.status(e.httpStatus).body(ResponseErrorModel(e))
     }
 
-    @ExceptionHandler(value = [RuntimeException::class])
+    @ExceptionHandler(value = [RuntimeException::class, IOException::class])
     fun handleGlobalException(): ResponseEntity<ResponseErrorModel> {
         log().error(ExceptionDefinition.INTERNAL_SERVER_ERROR.serverMsg)
+        RuntimeException().printStackTrace()
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ResponseErrorModel())
     }
 }

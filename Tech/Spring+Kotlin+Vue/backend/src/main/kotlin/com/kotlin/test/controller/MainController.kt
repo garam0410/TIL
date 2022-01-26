@@ -1,7 +1,5 @@
 package com.kotlin.test.controller
 
-import com.kotlin.test.exception.ExceptionDefinition
-import com.kotlin.test.exception.WebException
 import com.kotlin.test.model.StudentModel
 import com.kotlin.test.service.TestService
 import org.springframework.web.bind.annotation.*

@@ -24,5 +24,5 @@ spring:
       hibernate:
         format_sql: false
 
-file:
-  directory: C:\\Users\\User\\Desktop\\TIL\\Tech\\Spring+Kotlin+Vue\\backend\\src\\images\\
+temp: 'C:/Users/User/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/tmpDir/'
+real: 'C:\\Users\\User\\Desktop\\TIL\\Tech\\Spring+Kotlin+Vue\\backend\\src\\realDir\\'

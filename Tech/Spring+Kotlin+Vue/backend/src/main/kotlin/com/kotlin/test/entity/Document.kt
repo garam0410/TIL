@@ -1,21 +1,90 @@
 package com.kotlin.test.entity
 
-import com.kotlin.test.model.DocumentModel
+import com.kotlin.test.config.DocumentProperties
+import com.kotlin.test.exception.ExceptionDefinition
+import com.kotlin.test.exception.WebException
+import com.kotlin.test.util.log
+import org.apache.tomcat.util.http.fileupload.FileUtils
+import org.springframework.util.FileCopyUtils
+import org.springframework.web.multipart.MultipartFile
+import java.io.File
+import java.io.FileOutputStream
+import java.util.*
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
 @Entity
-class Document(documentModel: DocumentModel){
+class Document(file: MultipartFile) {
     @Id
     @GeneratedValue
-    private var id: Long? = null
-    private var fileName: String? = documentModel.fileName
-    private var filePath: String? = documentModel.filePath
-    private var fileSize: Long? = documentModel.fileSize
-    private var contentType: String? = documentModel.contentType
+    var id: Long? = null
+        protected set
 
-    fun getId() = id
+    var fileName: String? = null
+        protected set
 
-    fun changePath(path: String) = (path.also { this.filePath = it })
+    var filePath: String = DocumentProperties().tempPath
+        protected set
+
+    var fileSize: Long? = null
+        protected set
+
+    var contentType: String? = null
+        protected set
+
+    init {
+        fileName = makeRandomFileName(file)
+        fileSize = file.size
+        filePath += fileName
+        contentType = file.contentType
+        saveTempFile(file, filePath)
+    }
+
+    fun saveTempFile(file: MultipartFile, tempPath: String) {
+        if (file.isEmpty) {
+            throw WebException(ExceptionDefinition.UPLOAD_FILE_ERROR)
+        }
+        if (file.size == null) {
+            throw WebException(ExceptionDefinition.BAD_FILE_SIZE)
+        }
+        checkValidPath()
+        FileCopyUtils.copy(file.inputStream, FileOutputStream(File(tempPath)))
+    }
+
+    fun moveFileToRealPath() {
+        val tempFile = File(filePath)
+        val realPath = DocumentProperties().realPath + fileName
+
+        FileCopyUtils.copy(tempFile, File(realPath))
+        filePath = realPath
+
+        tempFile.delete()
+    }
+
+    fun deleteFile() {
+        val file = File(filePath)
+        if (!file.exists()) {
+            throw WebException(ExceptionDefinition.NOT_FOUND_FILE)
+        }
+        file.delete()
+    }
+
+    private fun checkValidPath() {
+        if (!File(DocumentProperties().tempPath).exists()) {
+            FileUtils.forceMkdir(File(DocumentProperties().tempPath))
+        }
+        if (!File(DocumentProperties().realPath).exists()) {
+            FileUtils.forceMkdir(File(DocumentProperties().realPath))
+        }
+    }
+
+    private fun makeRandomFileName(file: MultipartFile): String {
+        val randomFileName = UUID.randomUUID().toString()
+        return applyContentType(randomFileName, file)
+    }
+
+    private fun applyContentType(fileName: String, file: MultipartFile): String {
+        return fileName + "." + file.contentType!!.split("/")[1]
+    }
 }

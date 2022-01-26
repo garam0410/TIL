@@ -1,60 +1,46 @@
 package com.kotlin.test.service
 
 import com.kotlin.test.entity.Document
-import com.kotlin.test.exception.ExceptionDefinition
-import com.kotlin.test.exception.WebException
 import com.kotlin.test.model.DocumentModel
 import com.kotlin.test.respository.DocumentRepository
-import com.kotlin.test.util.FileUtil
-import com.kotlin.test.util.log
-import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.multipart.MultipartFile
+import java.io.File
+import java.io.InputStream
 
+@Transactional
 @Service
 class FileServiceImpl(
-    private val documentRepository: DocumentRepository,
+        private val documentRepository: DocumentRepository,
 ) : FileService {
-    override fun uploadFileToTmpPath(fileList: MutableList<MultipartFile>): MutableList<DocumentModel> {
 
-        if (fileList.isEmpty()) {
-            throw WebException(ExceptionDefinition.UPLOAD_FILE_ERROR)
-        }
-
-        var tmpFileList: MutableList<DocumentModel> = mutableListOf()
-
-        for (file in fileList) {
-            tmpFileList.add(
-                documentRepository.save(FileUtil().uploadFileToTmpDir(file).toEntity())
-            )
-        }
-
-        return tmpFileList
+    override fun saveTempFile(file: MultipartFile): DocumentModel {
+        var document = Document(file)
+        documentRepository.save(document)
+        return DocumentModel(document)
     }
 
-    override fun uploadOneFileToTmpPath(file: MultipartFile): Long {
-        if(file.isEmpty){
-            throw WebException(ExceptionDefinition.UPLOAD_FILE_ERROR)
-        }
-
-        var document: Document = documentRepository.saveAndFlush(FileUtil().uploadFileToTmpDir(file).toEntity())
-
-        return document.getId()!!
+    override fun moveFileToRealPath(fileName: String) {
+        var document: Document = getFileInfo(fileName)
+        document.moveFileToRealPath()
     }
 
-    override fun moveFileToRealPath(fileId: Long) {
-        var document: Document = getFileInfo(fileId)
-        FileUtil().moveFileToRealPath(document)
-    }
-
-    override fun deleteFile(fileId: Long) {
-        var document: Document = getFileInfo(fileId)
-        FileUtil().deleteFile(document)
+    override fun deleteFile(fileName: String) {
+        var document: Document = getFileInfo(fileName)
+        document.deleteFile()
         documentRepository.delete(document)
     }
 
-    fun getFileInfo(fileId: Long): Document {
-        return documentRepository.findByIdOrNull(fileId)
-            ?: throw WebException(ExceptionDefinition.NOT_FIND_FILE)
+    @Transactional(readOnly = true)
+    override fun getFile(fileName: String): ByteArray {
+        var document = getFileInfo(fileName)
+        val inputStream: InputStream = File(document.filePath).inputStream()
+        return inputStream.readBytes()
+    }
+
+    @Transactional(readOnly = true)
+    fun getFileInfo(fileName: String): Document {
+        return documentRepository.findByFileName(fileName)
     }
 }

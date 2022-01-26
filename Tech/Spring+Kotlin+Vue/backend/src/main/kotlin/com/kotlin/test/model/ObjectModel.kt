@@ -1,6 +1,4 @@
 package com.kotlin.test.model
 
-class ObjectModel(
-    var fileId: Long
-) {
+class ObjectModel(var fileName: String) {
 }
