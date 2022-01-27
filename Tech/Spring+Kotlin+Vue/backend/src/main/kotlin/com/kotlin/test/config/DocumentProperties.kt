@@ -1,22 +1,26 @@
 package com.kotlin.test.config
 
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.boot.context.properties.ConfigurationProperties
+import org.springframework.boot.context.properties.EnableConfigurationProperties
+import org.springframework.context.annotation.Configuration
 import org.springframework.stereotype.Component
 
-@Component
+@Configuration
+@EnableConfigurationProperties
 class DocumentProperties() {
 
-//    @Value("\${file.directory.temp}")
+//    @Value("\${temp}")
 //    var tempPath: String = "C:/Users/User/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/tmpDir/"
 //
-//    @Value("\${file.directory.real}")
+//    @Value("\${real}")
 //    var realPath: String = "C:/Users/User/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/realDir/"
 
-    @Value("\${test}")
-    lateinit var tempPath: String
+    @Value("\${temp}")
+    var tempPath: String = ""
 
     @Value("\${real}")
-    lateinit var realPath: String
+    var realPath: String = ""
 
 //    @Value("\${file.directory.temp}")
 //    val tempPath: String = "/Users/kgr/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/tmpDir/"

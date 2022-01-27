@@ -1,11 +1,15 @@
 package com.kotlin.test.entity
 
+import ch.qos.logback.core.rolling.helper.FileFilterUtil
 import com.kotlin.test.config.DocumentProperties
 import com.kotlin.test.exception.ExceptionDefinition
 import com.kotlin.test.exception.WebException
 import com.kotlin.test.util.log
+import org.apache.catalina.util.ExtensionValidator
 import org.apache.tomcat.util.http.fileupload.FileUtils
+import org.aspectj.util.FileUtil
 import org.springframework.util.FileCopyUtils
+import org.springframework.util.FileSystemUtils
 import org.springframework.web.multipart.MultipartFile
 import java.io.File
 import java.io.FileOutputStream
@@ -13,13 +17,13 @@ import java.util.*
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
+import javax.swing.filechooser.FileNameExtensionFilter
 
 @Entity
 class Document(file: MultipartFile) {
     @Id
     @GeneratedValue
     var id: Long? = null
-        protected set
 
     var fileName: String? = null
         protected set
@@ -81,10 +85,16 @@ class Document(file: MultipartFile) {
 
     private fun makeRandomFileName(file: MultipartFile): String {
         val randomFileName = UUID.randomUUID().toString()
-        return applyContentType(randomFileName, file)
+        return randomFileName + "." + getExtension(file)
     }
 
-    private fun applyContentType(fileName: String, file: MultipartFile): String {
-        return fileName + "." + file.contentType!!.split("/")[1]
+    private fun getExtension(file: MultipartFile): String {
+        var extension: String = File(filePath + file.originalFilename).extension
+
+        if(extension.isNullOrBlank()){
+            throw WebException()
+        }
+
+        return extension
     }
 }
