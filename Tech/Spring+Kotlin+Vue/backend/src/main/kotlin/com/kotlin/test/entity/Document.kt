@@ -1,15 +1,12 @@
 package com.kotlin.test.entity
 
-import ch.qos.logback.core.rolling.helper.FileFilterUtil
 import com.kotlin.test.config.DocumentProperties
+import com.kotlin.test.config.getStaticTempPath
 import com.kotlin.test.exception.ExceptionDefinition
 import com.kotlin.test.exception.WebException
 import com.kotlin.test.util.log
-import org.apache.catalina.util.ExtensionValidator
 import org.apache.tomcat.util.http.fileupload.FileUtils
-import org.aspectj.util.FileUtil
 import org.springframework.util.FileCopyUtils
-import org.springframework.util.FileSystemUtils
 import org.springframework.web.multipart.MultipartFile
 import java.io.File
 import java.io.FileOutputStream
@@ -17,7 +14,6 @@ import java.util.*
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
-import javax.swing.filechooser.FileNameExtensionFilter
 
 @Entity
 class Document(file: MultipartFile) {
@@ -75,6 +71,7 @@ class Document(file: MultipartFile) {
     }
 
     private fun checkValidPath() {
+        log().info(getStaticTempPath())
         if (!File(DocumentProperties().tempPath).exists()) {
             FileUtils.forceMkdir(File(DocumentProperties().tempPath))
         }
@@ -91,7 +88,7 @@ class Document(file: MultipartFile) {
     private fun getExtension(file: MultipartFile): String {
         var extension: String = File(filePath + file.originalFilename).extension
 
-        if(extension.isNullOrBlank()){
+        if (extension.isNullOrBlank()) {
             throw WebException()
         }
 

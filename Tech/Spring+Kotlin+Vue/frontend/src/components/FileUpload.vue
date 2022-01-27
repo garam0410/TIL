@@ -6,7 +6,7 @@
         </div>
 
         <div>
-            <img src="http://localhost:8080/api/file/28070c1a-68b8-40d7-b665-d392f3797415.png"/>
+            <img src=""/>
         </div>
         
     </div>

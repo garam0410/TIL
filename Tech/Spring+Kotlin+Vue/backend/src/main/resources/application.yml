@@ -24,5 +24,11 @@ spring:
       hibernate:
         format_sql: false
 
-temp: 'C:/Users/User/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/tmpDir/'
-real: 'C:\\Users\\User\\Desktop\\TIL\\Tech\\Spring+Kotlin+Vue\\backend\\src\\realDir\\'
+#temp: 'C:/Users/User/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/tmpDir/'
+#real: 'C:\\Users\\User\\Desktop\\TIL\\Tech\\Spring+Kotlin+Vue\\backend\\src\\realDir\\'
+
+temp: "/Users/daou-0410garam/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/tmpDir/"
+real: "/Users/daou-0410garam/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/realDir/"
+
+#temp: "~/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/tmpDir/"
+#real: "~/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/realDir/"

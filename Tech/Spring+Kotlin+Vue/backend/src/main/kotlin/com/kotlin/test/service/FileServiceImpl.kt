@@ -1,8 +1,13 @@
 package com.kotlin.test.service
 
+import com.kotlin.test.config.DocumentProperties
+import com.kotlin.test.config.StaticProperties
+import com.kotlin.test.config.getStaticRealPath
+import com.kotlin.test.config.getStaticTempPath
 import com.kotlin.test.entity.Document
 import com.kotlin.test.model.DocumentModel
 import com.kotlin.test.respository.DocumentRepository
+import com.kotlin.test.util.log
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.multipart.MultipartFile
@@ -12,10 +17,12 @@ import java.io.InputStream
 @Transactional
 @Service
 class FileServiceImpl(
-        private val documentRepository: DocumentRepository,
+    private val documentRepository: DocumentRepository,
+//    private val properties: DocumentProperties
 ) : FileService {
 
     override fun saveTempFile(file: MultipartFile): DocumentModel {
+        log().info(StaticProperties().tempPath())
         var document = Document(file)
         documentRepository.save(document)
         return DocumentModel(document)
