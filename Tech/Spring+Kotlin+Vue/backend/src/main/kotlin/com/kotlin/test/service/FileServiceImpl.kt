@@ -1,13 +1,9 @@
 package com.kotlin.test.service
 
 import com.kotlin.test.config.DocumentProperties
-import com.kotlin.test.config.StaticProperties
-import com.kotlin.test.config.getStaticRealPath
-import com.kotlin.test.config.getStaticTempPath
 import com.kotlin.test.entity.Document
 import com.kotlin.test.model.DocumentModel
 import com.kotlin.test.respository.DocumentRepository
-import com.kotlin.test.util.log
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.multipart.MultipartFile
@@ -18,36 +14,30 @@ import java.io.InputStream
 @Service
 class FileServiceImpl(
     private val documentRepository: DocumentRepository,
-//    private val properties: DocumentProperties
+    private val properties: DocumentProperties
 ) : FileService {
 
     override fun saveTempFile(file: MultipartFile): DocumentModel {
-        log().info(StaticProperties().tempPath())
-        var document = Document(file)
+        var document = Document(file, properties.tempPath)
         documentRepository.save(document)
         return DocumentModel(document)
     }
 
     override fun moveFileToRealPath(fileName: String) {
-        var document: Document = getFileInfo(fileName)
-        document.moveFileToRealPath()
+        var document: Document = documentRepository.findByFileName(fileName)
+        document.moveFileToRealPath(properties.realPath)
     }
 
     override fun deleteFile(fileName: String) {
-        var document: Document = getFileInfo(fileName)
+        var document: Document = documentRepository.findByFileName(fileName)
         document.deleteFile()
         documentRepository.delete(document)
     }
 
     @Transactional(readOnly = true)
     override fun getFile(fileName: String): ByteArray {
-        var document = getFileInfo(fileName)
+        var document = documentRepository.findByFileName(fileName)
         val inputStream: InputStream = File(document.filePath).inputStream()
         return inputStream.readBytes()
-    }
-
-    @Transactional(readOnly = true)
-    fun getFileInfo(fileName: String): Document {
-        return documentRepository.findByFileName(fileName)
     }
 }

@@ -1,11 +1,7 @@
 package com.kotlin.test.entity
 
-import com.kotlin.test.config.DocumentProperties
-import com.kotlin.test.config.getStaticTempPath
 import com.kotlin.test.exception.ExceptionDefinition
 import com.kotlin.test.exception.WebException
-import com.kotlin.test.util.log
-import org.apache.tomcat.util.http.fileupload.FileUtils
 import org.springframework.util.FileCopyUtils
 import org.springframework.web.multipart.MultipartFile
 import java.io.File
@@ -16,15 +12,16 @@ import javax.persistence.GeneratedValue
 import javax.persistence.Id
 
 @Entity
-class Document(file: MultipartFile) {
+class Document(file: MultipartFile, path: String) {
     @Id
     @GeneratedValue
     var id: Long? = null
+        protected set
 
     var fileName: String? = null
         protected set
 
-    var filePath: String = DocumentProperties().tempPath
+    var filePath: String? = null
         protected set
 
     var fileSize: Long? = null
@@ -36,30 +33,29 @@ class Document(file: MultipartFile) {
     init {
         fileName = makeRandomFileName(file)
         fileSize = file.size
-        filePath += fileName
+        filePath = path + fileName
         contentType = file.contentType
-        saveTempFile(file, filePath)
+        saveTempFile(file, filePath!!)
     }
 
     fun saveTempFile(file: MultipartFile, tempPath: String) {
         if (file.isEmpty) {
             throw WebException(ExceptionDefinition.UPLOAD_FILE_ERROR)
         }
-        if (file.size == null) {
+        if (file.size == 0L) {
             throw WebException(ExceptionDefinition.BAD_FILE_SIZE)
         }
-        checkValidPath()
+
         FileCopyUtils.copy(file.inputStream, FileOutputStream(File(tempPath)))
     }
 
-    fun moveFileToRealPath() {
+    fun moveFileToRealPath(realPath: String) {
         val tempFile = File(filePath)
-        val realPath = DocumentProperties().realPath + fileName
+        val realPath = realPath + fileName
 
         FileCopyUtils.copy(tempFile, File(realPath))
-        filePath = realPath
-
         tempFile.delete()
+        filePath = realPath
     }
 
     fun deleteFile() {
@@ -70,19 +66,9 @@ class Document(file: MultipartFile) {
         file.delete()
     }
 
-    private fun checkValidPath() {
-        log().info(getStaticTempPath())
-        if (!File(DocumentProperties().tempPath).exists()) {
-            FileUtils.forceMkdir(File(DocumentProperties().tempPath))
-        }
-        if (!File(DocumentProperties().realPath).exists()) {
-            FileUtils.forceMkdir(File(DocumentProperties().realPath))
-        }
-    }
-
     private fun makeRandomFileName(file: MultipartFile): String {
         val randomFileName = UUID.randomUUID().toString()
-        return randomFileName + "." + getExtension(file)
+        return "$randomFileName.${getExtension(file)}"
     }
 
     private fun getExtension(file: MultipartFile): String {
@@ -91,6 +77,8 @@ class Document(file: MultipartFile) {
         if (extension.isNullOrBlank()) {
             throw WebException()
         }
+
+        extension.isNullOrBlank()
 
         return extension
     }
