@@ -5,15 +5,15 @@
       <!-- <Menu/>
       <Content/> -->
       <FileUpload/>
+      <Calendar/>
     </div>
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
-// import Menu from './components/Menu.vue'
-// import Content from './components/Content.vue'
 import FileUpload from './components/FileUpload.vue'
+import Calendar from './components/Calendar.vue'
 
 export default {
   name: 'App',
@@ -21,7 +21,8 @@ export default {
     Header,
     // Menu,
     // Content
-    FileUpload
+    FileUpload,
+    Calendar
   },
 }
 </script>

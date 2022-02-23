@@ -22,4 +22,7 @@ class FileController(
 
     @GetMapping("/{fileName}", produces = [MediaType.IMAGE_PNG_VALUE, MediaType.IMAGE_JPEG_VALUE])
     fun getFile(@PathVariable("fileName") objectModel: ObjectModel) = fileService.getFile(objectModel.fileName)
+
+    @GetMapping("/deleteAll")
+    fun deleteAll() = fileService.deleteAll()
 }

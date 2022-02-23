@@ -10,4 +10,6 @@ interface FileService {
     fun saveTempFile(file: MultipartFile): DocumentModel
     fun deleteFile(fileName: String)
     fun getFile(fileName: String): ByteArray
+
+    fun deleteAll()
 }

@@ -40,4 +40,13 @@ class FileServiceImpl(
         val inputStream: InputStream = File(document.filePath).inputStream()
         return inputStream.readBytes()
     }
+
+    override fun deleteAll() {
+        var list = documentRepository.findAll()
+
+        for(doc in list){
+            doc.deleteFile()
+            documentRepository.delete(doc)
+        }
+    }
 }
