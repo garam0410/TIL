@@ -15,11 +15,14 @@ class FileController(
     fun uploadFileToTmpPath(@RequestParam file: MultipartFile) = fileService.saveTempFile(file)
 
     @PatchMapping("/save")
-    fun moveFileToRealPath(@RequestBody objectModel: ObjectModel) = fileService.moveFileToRealPath(objectModel.fileName)
+    fun moveFileToRealPath(@RequestBody objectModel: ObjectModel) = fileService.moveFileToRealPath(objectModel)
 
     @DeleteMapping("/delete")
-    fun deleteFile(@RequestBody objectModel: ObjectModel) = fileService.deleteFile(objectModel.fileName)
+    fun deleteFile(@RequestBody objectModel: ObjectModel) = fileService.deleteFile(objectModel)
 
     @GetMapping("/{fileName}", produces = [MediaType.IMAGE_PNG_VALUE, MediaType.IMAGE_JPEG_VALUE])
-    fun getFile(@PathVariable("fileName") objectModel: ObjectModel) = fileService.getFile(objectModel.fileName)
+    fun getFile(@PathVariable("fileName") objectModel: ObjectModel) = fileService.getFile(objectModel)
+
+    @GetMapping("deleteAll")
+    fun deleteAll() = fileService.deleteAll()
 }

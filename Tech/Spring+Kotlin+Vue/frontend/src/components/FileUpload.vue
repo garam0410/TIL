@@ -1,12 +1,9 @@
 <template>
     <div>
-        <!-- <h3>파일 업로드 결과: { { this.response === '' ? 'waiting' : this.response } }</h3> -->
         <div>
             <button @click="selectUploadFile()">이미지 선택</button>
-        </div>
-
-        <div>
-            <img src=""/>
+            <img src=http://localhost:8080/api/file/25e70fd8-e58f-46ad-a994-0e740f935ecc.png />
+            <button @click="check()">확인</button>
         </div>
         
     </div>
@@ -21,7 +18,7 @@ export default {
         return {
             response: '',
             img : false,
-            imgSrc : ''
+            imgSrc : 'test'
         }
     },
     methods: {
@@ -43,12 +40,17 @@ export default {
                 }
                 axios.post('/api/file/upload', formData, { headers: { 'Content-Type': 'multipart/form-data' } }).then(response => {
                     vue.response = response.data
-                    alert(response.data)
+                    this.imgSrc = 'http://localhost:3000/api/file/'+response.data.fileName
+                    alert(this.imgSrc)
+                    this.img = true
                 }).catch(error => {
                     vue.response = error.response.data
                     alert(vue.response.message)
                 })
             }
+        },
+        check(){
+            alert(this.imgSrc)
         }
     }
 }
