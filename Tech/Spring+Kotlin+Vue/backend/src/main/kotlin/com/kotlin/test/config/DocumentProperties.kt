@@ -17,6 +17,12 @@ class DocumentProperties {
     @Value("\${real}")
     val realPath: String = ""
 
+    @Value("\${host}")
+    var hostUrl: String = ""
+
+    @Value("\${server.port}")
+    var port: Long? = null
+
     @PostConstruct
     private fun initPath() {
         if (!File(tempPath).exists()) {
