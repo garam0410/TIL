@@ -24,6 +24,7 @@ spring:
       hibernate:
         format_sql: false
 
+<<<<<<< HEAD
 #temp: "/Users/daou-0410garam/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/tmpDir/"
 #real: "/Users/daou-0410garam/Desktop/TIL/Tech/Spring+Kotlin+Vue/backend/src/realDir/"
 
@@ -31,3 +32,7 @@ temp: "~/tmpDir/"
 real: "~/realDir/"
 
 host: "http://localhost"
+=======
+temp: "~/tmpDir/"
+real: "~/realDir/"
+>>>>>>> acd1b888405e4fe332a5db20675a308f378f048f

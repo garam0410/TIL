@@ -44,9 +44,13 @@ class FileServiceImpl(
     }
 
     override fun deleteAll() {
+<<<<<<< HEAD
         var list:List<Document> = documentRepository.findAll()
 
         log().info(list.size.toString())
+=======
+        var list = documentRepository.findAll()
+>>>>>>> acd1b888405e4fe332a5db20675a308f378f048f
 
         for(doc in list){
             doc.deleteFile()
