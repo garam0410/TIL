@@ -13,6 +13,6 @@ public class MainController {
 
     @GetMapping("/test")
     public void insertData(){
-        mainService.insertData();
+        mainService. insertData();
     }
 }

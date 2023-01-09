@@ -1,13 +1,18 @@
 package com.example.customtablegeneratorproject.component;
 
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.hibernate.id.IntegralDataTypeHolder;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.io.Serializable;
 import java.time.Instant;
+import java.util.logging.Logger;
 
 @Component
 @NoArgsConstructor
+@Slf4j
 public class SequenceGenerator {
 
     private static final int EPOCH_BITS = 41;
@@ -15,11 +20,10 @@ public class SequenceGenerator {
     private static final int SERVICE_TYPE_BITS = 1;
     private static final int MOVING_PART_BITS = 13;
 
-    private static final int maxMovingParts = (int) (Math.pow(2, MOVING_PART_BITS) - 1);    // 2^13-1
-    private static final int maxSequence = (int) (Math.pow(2, SEQUENCE_BITS) - 1);          // 2^9-1
+    private static final int maxMovingParts = (int) (Math.pow(2, MOVING_PART_BITS));
+    private static final int maxSequence = (int) (Math.pow(2, SEQUENCE_BITS));
 
     private static final long CUSTOM_EPOCH = 1420070400000L;
-    private volatile long sequence = 0L;
     private int movingParts;
     private Long saas = 0L;
     private volatile long lastTimestamp = -1L;
@@ -29,34 +33,24 @@ public class SequenceGenerator {
         movingParts = 10 & maxMovingParts;
     }
 
-    // Get current timestamp in milliseconds, adjust for the custom epoch.
     private static long timestamp() {
         return Instant.now().toEpochMilli() - CUSTOM_EPOCH;
     }
 
-    public synchronized long nextId() {
+    public synchronized long nextId(IntegralDataTypeHolder value) {
         long currentTimestamp = timestamp();
 
         if (currentTimestamp < lastTimestamp) {
             throw new IllegalStateException("Invalid System Clock!");
         }
 
-        if (currentTimestamp == lastTimestamp) {
-            sequence = (sequence + 1) & maxSequence;
-            if (sequence == 0) {
-                // Sequence Exhausted, wait till next millisecond.
-                currentTimestamp = waitNextMillis(currentTimestamp);
-            }
-        } else {
-            // reset sequence to start with zero for the next millisecond
-            sequence = 0;
-        }
+        long sequence = (long) value.makeValue();
 
         lastTimestamp = currentTimestamp;
-        return makeId(currentTimestamp);
+        return makeId(currentTimestamp, sequence % maxSequence);
     }
 
-    private Long makeId(long currentTimestamp) {
+    private Long makeId(long currentTimestamp, long sequence) {
         long id = 0;
 
         id |= (currentTimestamp << SEQUENCE_BITS + SERVICE_TYPE_BITS + MOVING_PART_BITS);
@@ -65,13 +59,5 @@ public class SequenceGenerator {
         id |= movingParts;
 
         return id;
-    }
-
-    // Block and wait till next millisecond
-    private long waitNextMillis(long currentTimestamp) {
-        while (currentTimestamp == lastTimestamp) {
-            currentTimestamp = timestamp();
-        }
-        return currentTimestamp;
     }
 }

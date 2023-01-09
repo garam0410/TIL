@@ -60,16 +60,16 @@ public class CustomGenerator implements PersistentIdentifierGenerator {
     private String segmentColumnName = "entity_tbl_name";   // key
     private String segmentValue;
     private int segmentValueLength;
-    private String valueColumnName; // value
+    private String valueColumnName = "sequence_next_hi_value"; // value
     private int initialValue;
-    private int incrementSize = 1;
+    private int incrementSize = 10;
     private String selectQuery;
     private String insertQuery;
     private String updateQuery;
-    private Optimizer optimizer;
-    private long accessCount;
 
-    private SequenceGenerator sequenceGenerator = context.getBean(SequenceGenerator.class);
+    private CustomOptimizer optimizer;
+
+    private SequenceGenerator sequenceGenerator;
 
     public void configure(Type type, Properties params, ServiceRegistry serviceRegistry) throws MappingException {
         this.storeLastUsedValue = (Boolean) ((ConfigurationService) serviceRegistry.getService(ConfigurationService.class)).getSetting("hibernate.id.generator.stored_last_used", StandardConverters.BOOLEAN, true);
@@ -80,10 +80,7 @@ public class CustomGenerator implements PersistentIdentifierGenerator {
         this.segmentValue = this.determineSegmentValue(params);
         this.segmentValueLength = this.determineSegmentColumnSize(params);
         this.initialValue = this.determineInitialValue(params);
-//        this.incrementSize = this.determineIncrementSize(params);
-        String optimizationStrategy = ConfigurationHelper.getString("optimizer", params, OptimizerFactory.determineImplicitOptimizerName(this.incrementSize, params));
-        int optimizerInitialValue = ConfigurationHelper.getInt("initial_value", params, -1);
-        this.optimizer = OptimizerFactory.buildOptimizer(optimizationStrategy, this.identifierType.getReturnedClass(), this.incrementSize, (long)optimizerInitialValue);
+        this.optimizer = new CustomOptimizer();
     }
 
     protected QualifiedName determineGeneratorTableName(Properties params, JdbcEnvironment jdbcEnvironment, ServiceRegistry serviceRegistry) {
@@ -140,10 +137,6 @@ public class CustomGenerator implements PersistentIdentifierGenerator {
         return ConfigurationHelper.getInt("initial_value", params, 1);
     }
 
-    protected int determineIncrementSize(Properties params) {
-        return ConfigurationHelper.getInt("increment_size", params, 1);
-    }
-
     protected String buildSelectQuery(String formattedPhysicalTableName, SqlStringGenerationContext context) {
         String alias = "tbl";
         String query = "select " + StringHelper.qualify("tbl", this.valueColumnName) + " from " + formattedPhysicalTableName + ' ' + "tbl" + " where " + StringHelper.qualify("tbl", this.segmentColumnName) + "=?";
@@ -153,11 +146,11 @@ public class CustomGenerator implements PersistentIdentifierGenerator {
         return context.getDialect().applyLocksToSql(query, lockOptions, updateTargetColumnsMap);
     }
 
-    protected String buildUpdateQuery(String formattedPhysicalTableName, SqlStringGenerationContext context) {
+    protected String buildUpdateQuery(String formattedPhysicalTableName) {
         return "update " + formattedPhysicalTableName + " set " + this.valueColumnName + "=?  where " + this.valueColumnName + "=? and " + this.segmentColumnName + "=?";
     }
 
-    protected String buildInsertQuery(String formattedPhysicalTableName, SqlStringGenerationContext context) {
+    protected String buildInsertQuery(String formattedPhysicalTableName) {
         return "insert into " + formattedPhysicalTableName + " (" + this.segmentColumnName + ", " + this.valueColumnName + ")  values (?,?)";
     }
 
@@ -178,7 +171,7 @@ public class CustomGenerator implements PersistentIdentifierGenerator {
     public Serializable generate(final SharedSessionContractImplementor session, Object obj) {
         final SqlStatementLogger statementLogger = ((JdbcServices) session.getFactory().getServiceRegistry().getService(JdbcServices.class)).getSqlStatementLogger();
         final SessionEventListenerManager statsCollector = session.getEventListenerManager();
-        return this.optimizer.generate(new AccessCallback() {
+        return this.optimizer.generate(0L, new AccessCallback() {
             public IntegralDataTypeHolder getNextValue() {
                 return (IntegralDataTypeHolder) session.getTransactionCoordinator().createIsolationDelegate().delegateWork(new AbstractReturningWork<IntegralDataTypeHolder>() {
                     public IntegralDataTypeHolder execute(Connection connection) throws SQLException {
@@ -292,9 +285,10 @@ public class CustomGenerator implements PersistentIdentifierGenerator {
                             }
                         } while (rows == 0);
 
-                        accessCount++;
                         if (storeLastUsedValue) {
-                            return value.increment();
+//                            sequenceGenerator = SpringApplicationContext.getBean(SequenceGenerator.class);
+//                            return value.initialize(sequenceGenerator.nextId(value));
+                            return value;
                         } else {
                             return value;
                         }
@@ -368,7 +362,7 @@ public class CustomGenerator implements PersistentIdentifierGenerator {
     public void initialize(SqlStringGenerationContext context) {
         String formattedPhysicalTableName = context.format(this.physicalTableName);
         this.selectQuery = this.buildSelectQuery(formattedPhysicalTableName, context);
-        this.updateQuery = this.buildUpdateQuery(formattedPhysicalTableName, context);
-        this.insertQuery = this.buildInsertQuery(formattedPhysicalTableName, context);
+        this.updateQuery = this.buildUpdateQuery(formattedPhysicalTableName);
+        this.insertQuery = this.buildInsertQuery(formattedPhysicalTableName);
     }
 }
