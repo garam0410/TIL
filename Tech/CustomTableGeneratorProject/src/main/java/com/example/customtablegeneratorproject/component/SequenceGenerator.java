@@ -3,6 +3,7 @@ package com.example.customtablegeneratorproject.component;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.id.IntegralDataTypeHolder;
+import org.hibernate.id.enhanced.AccessCallback;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -37,17 +38,25 @@ public class SequenceGenerator {
         return Instant.now().toEpochMilli() - CUSTOM_EPOCH;
     }
 
-    public synchronized long nextId(IntegralDataTypeHolder value) {
-        long currentTimestamp = timestamp();
+    public synchronized long nextId(AccessCallback callback) {
+//        long currentTimestamp = timestamp();
+        long currentTimestamp = 212868863555999999L;
+        long sequence;
 
         if (currentTimestamp < lastTimestamp) {
             throw new IllegalStateException("Invalid System Clock!");
         }
 
-        long sequence = (long) value.makeValue();
+        if (currentTimestamp == lastTimestamp) {
+            long nextValue = callback.getNextValue().makeValue().longValue();
+            sequence = nextValue % 5;
+        } else {
+            sequence = 0;
+        }
 
+        log.info("sequence : {}, currentTimestamp : {}", sequence, currentTimestamp);
         lastTimestamp = currentTimestamp;
-        return makeId(currentTimestamp, sequence % maxSequence);
+        return makeId(currentTimestamp, sequence % 5);
     }
 
     private Long makeId(long currentTimestamp, long sequence) {

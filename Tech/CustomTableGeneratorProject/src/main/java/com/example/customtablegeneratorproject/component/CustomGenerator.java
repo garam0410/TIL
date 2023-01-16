@@ -49,9 +49,6 @@ import java.util.Properties;
 @Component
 public class CustomGenerator implements PersistentIdentifierGenerator {
 
-    @Autowired
-    private ApplicationContext context;
-
     private static final CoreMessageLogger logger = (CoreMessageLogger) Logger.getMessageLogger(CoreMessageLogger.class, org.hibernate.id.enhanced.TableGenerator.class.getName());
     private boolean storeLastUsedValue;
     private Type identifierType;
@@ -62,12 +59,10 @@ public class CustomGenerator implements PersistentIdentifierGenerator {
     private int segmentValueLength;
     private String valueColumnName = "sequence_next_hi_value"; // value
     private int initialValue;
-    private int incrementSize = 10;
+    private int incrementSize = 1;
     private String selectQuery;
     private String insertQuery;
     private String updateQuery;
-
-    private CustomOptimizer optimizer;
 
     private SequenceGenerator sequenceGenerator;
 
@@ -80,7 +75,6 @@ public class CustomGenerator implements PersistentIdentifierGenerator {
         this.segmentValue = this.determineSegmentValue(params);
         this.segmentValueLength = this.determineSegmentColumnSize(params);
         this.initialValue = this.determineInitialValue(params);
-        this.optimizer = new CustomOptimizer();
     }
 
     protected QualifiedName determineGeneratorTableName(Properties params, JdbcEnvironment jdbcEnvironment, ServiceRegistry serviceRegistry) {
@@ -102,11 +96,6 @@ public class CustomGenerator implements PersistentIdentifierGenerator {
             Identifier schema = jdbcEnvironment.getIdentifierHelper().toIdentifier(ConfigurationHelper.getString("schema", params));
             return new QualifiedNameParser.NameParts(catalog, schema, jdbcEnvironment.getIdentifierHelper().toIdentifier(tableName));
         }
-    }
-
-    protected String determineSegmentColumnName(Properties params, JdbcEnvironment jdbcEnvironment) {
-        String name = ConfigurationHelper.getString("segment_column_name", params, "sequence_name");
-        return jdbcEnvironment.getIdentifierHelper().toIdentifier(name).render(jdbcEnvironment.getDialect());
     }
 
     protected String determineValueColumnName(Properties params, JdbcEnvironment jdbcEnvironment) {
@@ -171,7 +160,9 @@ public class CustomGenerator implements PersistentIdentifierGenerator {
     public Serializable generate(final SharedSessionContractImplementor session, Object obj) {
         final SqlStatementLogger statementLogger = ((JdbcServices) session.getFactory().getServiceRegistry().getService(JdbcServices.class)).getSqlStatementLogger();
         final SessionEventListenerManager statsCollector = session.getEventListenerManager();
-        return this.optimizer.generate(0L, new AccessCallback() {
+
+        sequenceGenerator = SpringApplicationContext.getBean(SequenceGenerator.class);
+        return sequenceGenerator.nextId(new AccessCallback() {
             public IntegralDataTypeHolder getNextValue() {
                 return (IntegralDataTypeHolder) session.getTransactionCoordinator().createIsolationDelegate().delegateWork(new AbstractReturningWork<IntegralDataTypeHolder>() {
                     public IntegralDataTypeHolder execute(Connection connection) throws SQLException {
@@ -254,11 +245,7 @@ public class CustomGenerator implements PersistentIdentifierGenerator {
 
                                 try {
                                     IntegralDataTypeHolder updateValue = value.copy();
-                                    if (optimizer.applyIncrementSizeToSourceValues()) {
-                                        updateValue.add((long) incrementSize);
-                                    } else {
-                                        updateValue.increment();
-                                    }
+                                    updateValue.add((long) incrementSize);
 
                                     updateValue.bind(updatePS, 1);
                                     value.bind(updatePS, 2);
@@ -285,13 +272,7 @@ public class CustomGenerator implements PersistentIdentifierGenerator {
                             }
                         } while (rows == 0);
 
-                        if (storeLastUsedValue) {
-//                            sequenceGenerator = SpringApplicationContext.getBean(SequenceGenerator.class);
-//                            return value.initialize(sequenceGenerator.nextId(value));
-                            return value;
-                        } else {
-                            return value;
-                        }
+                        return value;
                     }
                 }, true);
             }

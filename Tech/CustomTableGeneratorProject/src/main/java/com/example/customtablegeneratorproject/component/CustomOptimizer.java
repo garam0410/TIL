@@ -48,9 +48,9 @@ public class CustomOptimizer {
         }
 
         sequenceGenerator = SpringApplicationContext.getBean(SequenceGenerator.class);
-        return sequenceGenerator.nextId(generationState.value);
+//        return sequenceGenerator.nextId(generationState.value);
 
-//        return generationState.value.makeValueThenIncrement();
+        return generationState.value.makeValueThenIncrement();
     }
 
     private CustomOptimizer.GenerationState locateGenerationState(String tenantIdentifier) {
