@@ -21,7 +21,6 @@ import java.util.logging.Logger;
 @RestControllerAdvice
 public class ControllerResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
-    private final Logger logger = Logger.getLogger(String.valueOf(ControllerResponseBodyAdvice.class));
     private final ObjectMapper objectMapper;
 
     @Override
@@ -44,8 +43,9 @@ public class ControllerResponseBodyAdvice implements ResponseBodyAdvice<Object> 
         Iterator iter = obj.keys();
         while (iter.hasNext()) {
             String key = String.valueOf(iter.next());
-            if (key.toLowerCase().contains("id") || key.toLowerCase().contains("seq")) {
-                obj.put(key, String.valueOf(obj.get(key)));
+            Object value = obj.get(key);
+            if (key.toLowerCase().contains("id") && value.getClass().equals(Long.class)) {
+                obj.put(key, String.valueOf(value));
             } else if (obj.get(key).getClass() == JSONObject.class) {
                 extractObject(key, obj);
             }

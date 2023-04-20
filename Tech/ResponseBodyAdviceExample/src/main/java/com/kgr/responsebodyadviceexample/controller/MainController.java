@@ -14,6 +14,6 @@ public class MainController {
 
     @GetMapping("/test")
     public ResponseWrapper insertData(){
-        return mainService.insertData();
+        return new ResponseWrapper(mainService.insertData());
     }
 }

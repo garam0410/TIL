@@ -12,15 +12,22 @@ import java.io.Serializable;
 @Getter
 public class BaseEntity implements Serializable {
     @Id
-    @GenericGenerator(name = "global_seq_id", strategy = "com.example.customtablegeneratorproject.component.CustomGenerator")
-    @GeneratedValue(generator = "global_seq_id")
-//    @GeneratedValue(strategy = GenerationType.TABLE, generator = "tbl-gen")
-//    @TableGenerator(name = "tbl-gen", pkColumnName = "entity_tbl_name", allocationSize = 20, table = "test_entity_ids")
+//    @GenericGenerator(name = "global_seq_id", strategy = "com.example.customtablegeneratorproject.component.CustomGenerator")
+//    @GeneratedValue(generator = "global_seq_id")
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "tbl-gen")
+    @TableGenerator(
+            name = "tbl-gen",
+            table = "table_ids",
+            pkColumnName = "entity_name",
+            valueColumnName = "entity_next_value",
+            initialValue = 0,
+            allocationSize = 10
+    )
     private Long id;
 
     @Override
     public int hashCode() {
-        final int prime = 31; // NOPMD by freeis on 2012-08-24
+        final int prime = 31;
         int result = 1;
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         return result;

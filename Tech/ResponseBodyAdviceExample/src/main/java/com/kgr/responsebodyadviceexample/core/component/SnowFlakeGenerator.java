@@ -13,16 +13,16 @@ import java.time.Instant;
 @NoArgsConstructor
 public class SnowFlakeGenerator implements IdentifierGenerator {
 
-    private static final int CASE_ONE_BITS = 5;
-    private static final int CASE_TWO_BITS = 5;
-    private static final int SEQUENCE_BITS = 3;
+    private static final int CASE_ONE_BITS = 10;
+    private static final int CASE_TWO_BITS = 9;
+    private static final int SEQUENCE_BITS = 4;
 
     private static final int maxSequence = (int) (Math.pow(2, CASE_ONE_BITS) - 1);          // 2^5-1
 
     private static final long CUSTOM_EPOCH = 1420070400000L;    // 41bit
     private volatile long sequence = 0L;
     private int case_one = 10;
-    private int case_two = 0;
+    private int case_two = 11;
     private volatile long lastTimestamp = -1L;
 
     @Override
@@ -58,9 +58,9 @@ public class SnowFlakeGenerator implements IdentifierGenerator {
         long id = 0;
 
         id |= (currentTimestamp << CASE_ONE_BITS + CASE_TWO_BITS + SEQUENCE_BITS);
-        id |= (case_one << CASE_TWO_BITS + SEQUENCE_BITS);
-        id |= (case_two << SEQUENCE_BITS);
-        id |= sequence;
+        id |= (sequence << CASE_TWO_BITS + SEQUENCE_BITS);
+        id |= (case_one << SEQUENCE_BITS);
+        id |= case_two;
 
         return id;
     }
