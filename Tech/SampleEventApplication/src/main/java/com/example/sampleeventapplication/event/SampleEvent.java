@@ -1,5 +1,6 @@
-package com.example.sampleeventapplication;
+package com.example.sampleeventapplication.event;
 
+import com.example.sampleeventapplication.domain.SampleEntity;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor

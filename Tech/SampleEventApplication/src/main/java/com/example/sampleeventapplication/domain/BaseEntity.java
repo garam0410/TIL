@@ -1,10 +1,7 @@
-package com.example.sampleeventapplication;
+package com.example.sampleeventapplication.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Builder;
+import com.example.sampleeventapplication.common.ThreadContext;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Transient;
@@ -12,51 +9,40 @@ import org.springframework.data.domain.AfterDomainEventPublication;
 import org.springframework.data.domain.DomainEvents;
 import org.springframework.util.Assert;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-@Entity
+@MappedSuperclass
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@NoArgsConstructor
-public class SampleEntity {
-
+public abstract class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String text;
-
-    @Builder
-    public SampleEntity(Long id, String text) {
-        this.id = id;
-        this.text = text;
-    }
-
     @Transient
-    private transient final List<Object> domainEvents = new ArrayList<>();
+    private final transient List<Object> domainEvents = new ArrayList();
 
-    protected <T> T registerEvent(T event) {
-
+    protected <T> void registerEvent(T event) {
         Assert.notNull(event, "Domain event must not be null");
-
+        ThreadContext.registerEvent(event);
         this.domainEvents.add(event);
-        return event;
     }
 
     @AfterDomainEventPublication
     protected void clearDomainEvents() {
+        ThreadContext.removeEvent(Collections.unmodifiableList(domainEvents));
         this.domainEvents.clear();
     }
 
     @DomainEvents
     protected Collection<Object> domainEvents() {
         return Collections.unmodifiableList(domainEvents);
-    }
-
-
-    public void publish() {
-        registerEvent(new SampleEvent(this));
     }
 }

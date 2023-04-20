@@ -13,6 +13,8 @@ spring:
       hibernate:
         format_sql: true
         show_sql: false
+        session_factory:
+          interceptor: com.example.sampleeventapplication.common.CustomHibernateInterceptor
 
 logging:
   level:
