@@ -41,13 +41,11 @@ public class SampleEventService {
         sampleEntityRepository.save(sampleEntity);
     }
 
-    @Transactional(readOnly = true)
     private SampleEntity getSampleEntity(Long id) {
         return sampleEntityRepository.findById(id)
                 .orElseThrow();
     }
 
-    @Transactional(readOnly = true)
     private SampleDetailEntity getSampleDetailEntity(Long id) {
         return sampleEntityDetailRepository.findById(id)
                 .orElseThrow();
