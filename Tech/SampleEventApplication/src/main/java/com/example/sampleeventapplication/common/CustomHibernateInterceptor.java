@@ -11,14 +11,11 @@ public class CustomHibernateInterceptor extends EmptyInterceptor {
 
     @Override
     public void afterTransactionBegin(Transaction transaction) {
-        log.info("afterTransactionBegin");
         ThreadContext.initEventThread();
     }
 
     @Override
-    public void beforeTransactionCompletion(Transaction transaction) {
-        log.info("afterTransactionCompletion");
+    public void afterTransactionCompletion(Transaction transaction) {
         ThreadContext.publishRemainEvents();
-        ThreadContext.clearEventThread();
     }
 }

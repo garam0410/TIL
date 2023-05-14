@@ -1,0 +1,49 @@
+version: "3"
+services:
+  business:
+    container_name: business
+    ports:
+      - 8080:8080
+    build:
+      context: ./business
+      dockerfile: Dockerfile
+    restart: always
+    networks:
+      - public_net
+      - default
+  platform:
+    container_name: platform
+    ports:
+      - 8081:8081
+    build:
+      context: ./platform
+      dockerfile: Dockerfile
+    restart: always
+    networks:
+      - public_net
+      - default
+  link:
+    container_name: link
+    ports:
+      - 8082:8082
+    build:
+      context: ./link
+      dockerfile: Dockerfile
+    restart: always
+    networks:
+      - public_net
+      - default
+  auth:
+    container_name: auth
+    ports:
+      - 8083:8083
+    build:
+      context: ./auth
+      dockerfile: Dockerfile
+    restart: always
+    networks:
+      - public_net
+      - default
+networks:
+  public_net:
+    driver: bridge

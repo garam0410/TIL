@@ -5,6 +5,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.domain.AbstractAggregateRoot;
 import org.springframework.data.domain.AfterDomainEventPublication;
 import org.springframework.data.domain.DomainEvents;
 import org.springframework.util.Assert;
@@ -21,28 +22,8 @@ import java.util.List;
 @MappedSuperclass
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-public abstract class BaseEntity {
+public abstract class BaseEntity extends DomainEvent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Transient
-    private final transient List<Object> domainEvents = new ArrayList();
-
-    protected <T> void registerEvent(T event) {
-        Assert.notNull(event, "Domain event must not be null");
-        ThreadContext.registerEvent(event);
-        this.domainEvents.add(event);
-    }
-
-    @AfterDomainEventPublication
-    protected void clearDomainEvents() {
-        ThreadContext.removeEvent(Collections.unmodifiableList(domainEvents));
-        this.domainEvents.clear();
-    }
-
-    @DomainEvents
-    protected Collection<Object> domainEvents() {
-        return Collections.unmodifiableList(domainEvents);
-    }
 }

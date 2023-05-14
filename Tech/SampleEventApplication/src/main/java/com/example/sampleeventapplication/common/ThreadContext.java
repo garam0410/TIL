@@ -33,7 +33,7 @@ public class ThreadContext {
                 .filter(EventPublishStatusObject::isNotPublished)
                 .forEach(eventPublishStatusObject -> {
                     eventPublishStatusObject.publish();
-                    SpringApplicationEventPublisher.registerEvent(eventPublishStatusObject.event);
+                    SpringApplicationEventPublisher.registerEvent(eventPublishStatusObject.getEvent());
                 });
     }
 
@@ -48,7 +48,7 @@ public class ThreadContext {
         List<EventPublishStatusObject> eventList = events.get();
         List<EventPublishStatusObject> filteredEventList =
                 eventList.stream().filter(eventPublishStatusObject ->
-                        unmodifiableList.contains(eventPublishStatusObject.event)).collect(Collectors.toList());
+                        unmodifiableList.contains(eventPublishStatusObject.getEvent())).toList();
         eventList.removeAll(filteredEventList);
     }
 

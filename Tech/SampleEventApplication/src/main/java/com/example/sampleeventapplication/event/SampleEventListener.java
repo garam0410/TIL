@@ -10,7 +10,8 @@ public class SampleEventListener {
 
     @EventListener
     public void sampleEventListener(SampleEvent sampleEvent){
-        log.info(String.valueOf(sampleEvent.id));
-        log.info(sampleEvent.text);
+        log.info("sampleEvent : {}", sampleEvent);
+//        log.info(String.valueOf(sampleEvent.id));
+//        log.info(sampleEvent.text);
     }
 }
