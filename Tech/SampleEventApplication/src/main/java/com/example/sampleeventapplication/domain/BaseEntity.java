@@ -46,3 +46,5 @@ public abstract class BaseEntity {
         return Collections.unmodifiableList(domainEvents);
     }
 }
+
+

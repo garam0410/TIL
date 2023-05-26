@@ -16,4 +16,10 @@ public class SampleDetailEntity extends BaseEntity{
     public void publish() {
         registerEvent(new SampleDetailEvent(this));
     }
+
+    public void setBool(Boolean bool) {
+        this.bool = bool;
+    }
 }
+
+

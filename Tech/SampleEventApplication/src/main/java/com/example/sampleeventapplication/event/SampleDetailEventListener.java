@@ -10,6 +10,7 @@ public class SampleDetailEventListener {
 
     @EventListener
     public void publish(SampleDetailEvent event){
+        log.info("Sample Detail Event Listen!!");
         log.info("sampleDetailEvent : {}", event.getBool());
     }
 }
