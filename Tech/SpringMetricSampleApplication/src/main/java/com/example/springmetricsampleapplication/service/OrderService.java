@@ -33,11 +33,11 @@ public class OrderService {
         log.info("취소");
         stock.incrementAndGet();
 
-        Counter.builder("my.order")
+        Counter.builder("my.cancel")
                 .tag("class", this.getClass().getName())
                 .tag("method", "cancel")
                 .description("order")
-                .register(registry).increment(-1);
+                .register(registry).increment();
     }
 
     public AtomicInteger getStock() {
