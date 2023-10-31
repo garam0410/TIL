@@ -1,27 +1,30 @@
 spring:
   kafka:
-    bootstrap-servers:
-      - localhost:9092
+    bootstrap-server: localhost:9092
     consumer:
-      # consumer bootstrap servers? ?? ???? ??
-      # bootstrap-servers: 192.168.0.4:9092
-
-      # ?? ??? Consumer Group Id
-      group-id: testgroup
-      # Kafka ??? ?? offset? ???, ??? ?? offset? ? ?? ???? ?? ?? ??? ??? ??
-      # latest: ?? ??? ??? ???? offeset reset
-      # earliest: ?? ??? ???? offeset reset
-      # none: offset ??? ??? Exception ??
+      group-id: kafka.demo.consumer
       auto-offset-reset: earliest
-      # ???? ??? ?, key/value? ????
-      # JSON ???? ??? ???? JsonDeserializer
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
     producer:
-      # producer bootstrap servers? ?? ???? ??
-      # bootstrap-servers: 3.34.97.97:9092
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    properties:
+      spring:
+        json:
+          trusted:
+            packages: 'com.ramy.kafkademo.*'
 
-      # ???? ?? ?, key/value? ???
-      # JSON ???? ?? ???? JsonDeserializer
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  datasource:
+    url: jdbc:postgresql://localhost:5432/testdb
+    username: ramy
+    password: ramy
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+demo:
+  async-executor:
+    core-pool-size: 50
+    max-pool-size: 50
+    queue-capacity: 1000
+    thread-name-prefix: KafkaListener-
