@@ -16,7 +16,7 @@ public class LinkLastWordGame {
 
             if (checkDuplicate(inputWord)) {
                 error++;
-                System.out.println("중복 단어....! (" + (ERROR_COUNT- error) + "회 남음)");
+                System.out.println("중복 단어....! (" + (ERROR_COUNT - error) + "회 남음)");
             } else {
                 error = 0;
                 wordMap.put(inputWord, wordMap.getOrDefault(inputWord, 0) + 1);
