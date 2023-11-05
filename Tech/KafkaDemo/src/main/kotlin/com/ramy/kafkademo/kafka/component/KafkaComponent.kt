@@ -1,46 +1,45 @@
 package com.ramy.kafkademo.kafka.component
 
 import com.ramy.kafkademo.controller.Message
+import com.ramy.kafkademo.kafka.aspect.OffsetSelfSync
 import com.ramy.kafkademo.outbox.entity.Outbox
 import com.ramy.kafkademo.outbox.service.OutboxService
+import com.ramy.kafkademo.redis.RedisOutboxService
+import org.apache.kafka.clients.consumer.Consumer
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.kafka.core.KafkaTemplate
-import org.springframework.scheduling.annotation.Async
+import org.springframework.kafka.support.Acknowledgment
 import org.springframework.stereotype.Component
-import java.sql.DriverManager.println
+import java.lang.RuntimeException
 import java.util.logging.Logger
 
 
 @Component
-class Producer(
+class KafkaBaseProducer(
     private val kafkaTemplate: KafkaTemplate<String, Any>,
-    private val outboxService: OutboxService,
+    private val redisOutboxService: RedisOutboxService
 ) {
     fun sendMessage(topic: String, message: Message) {
-        outboxService.saveMessagePayload(
-            Outbox(
-                topic = topic,
-                uuid = message.uuid,
-                payload = message,
-                sendDateTime = message.sendDateTime
-            )
-        )
-
+        redisOutboxService.saveMessage(message)
         kafkaTemplate.send(topic, message)
     }
 }
 
 @Component
-class Consumer{
-    @Async("kafkaListenerThreadPool")
+class KafkaBaseConsumer {
+
+    @OffsetSelfSync
     @KafkaListener(
-        topics = ["test.topic"],
+        topics = ["test.topic.two"],
         groupId = ConsumerConfig.GROUP_ID_CONFIG,
         containerFactory = "kafkaListenerContainerFactory"
     )
     fun consume(message: Message) {
-        val log = Logger.getLogger(Consumer::class.toString())
-        log.info("value : , payload : ${message.payload}, sendDateTime : ${message.sendDateTime}")
+        val log = Logger.getLogger(KafkaBaseConsumer::class.toString())
+
+//        Thread.sleep(2000)
+        log.info("payload : ${message.payload}, sendDateTime : ${message.sendDateTime}")
+        throw RuntimeException()
     }
 }

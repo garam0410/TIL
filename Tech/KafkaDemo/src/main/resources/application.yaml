@@ -15,12 +15,17 @@ spring:
 
   datasource:
     url: jdbc:postgresql://localhost:5432/testdb
-    username: ramy
-    password: ramy
+    username: root
+    password: 1234
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
 
 demo:
   async-executor:
